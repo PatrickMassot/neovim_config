@@ -13,6 +13,7 @@ require('lazy').setup({
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
+  'lervag/vimtex',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -137,20 +138,22 @@ require('lazy').setup({
       end,
     },
   },
-
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
-    priority = 1000,
-    lazy = false,
-    config = function()
-      require('onedark').setup {
-        -- Set a style preset. 'dark' is default.
-        style = 'dark', -- dark, darker, cool, deep, warm, warmer, light
-      }
-      require('onedark').load()
-    end,
+    'rebelot/kanagawa.nvim',
   },
+--  {
+--    -- Theme inspired by Atom
+--    'navarasu/onedark.nvim',
+--    priority = 1000,
+--    lazy = false,
+--    config = function()
+--      require('onedark').setup {
+--        -- Set a style preset. 'dark' is default.
+--        style = 'dark', -- dark, darker, cool, deep, warm, warmer, light
+--      }
+--      require('onedark').load()
+--    end,
+--  },
 
   {
     -- Set lualine as statusline
@@ -166,14 +169,6 @@ require('lazy').setup({
     },
   },
 
-  {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help ibl`
-    main = 'ibl',
-    opts = {},
-  },
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
@@ -206,6 +201,41 @@ require('lazy').setup({
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
     build = ':TSUpdate',
+  },
+  {
+    'Julian/lean.nvim',
+    event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
+
+    dependencies = {
+      'neovim/nvim-lspconfig',
+      'nvim-lua/plenary.nvim',
+      -- you also will likely want nvim-cmp or some completion engine
+    },
+
+    -- see details below for full configuration options
+    opts = {
+      lsp = {
+        on_attach = _G.on_attach,
+        init_options = { editDelay = 0 },
+      },
+      mappings = true,
+      abbreviations = {
+        -- Enable expanding of unicode abbreviations?
+        enable = true,
+        -- additional abbreviations:
+        extra = {
+          -- Add a \wknight abbreviation to insert ♘
+          --
+          -- Note that the backslash is implied, and that you of
+          -- course may also use a snippet engine directly to do
+          -- this if so desired.
+          wknight = '♘',
+        },
+        -- Change if you don't like the backslash
+        -- (comma is a popular choice on French keyboards)
+        leader = ',',
+      },
+    }
   },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
