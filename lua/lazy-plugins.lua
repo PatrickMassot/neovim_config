@@ -12,8 +12,12 @@ require('lazy').setup({
   'tpope/vim-rhubarb',
 
   -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
+  -- 'tpope/vim-sleuth',
+  
+  -- LaTeX support
   'lervag/vimtex',
+  'micangl/cmp-vimtex',
+  'evesdropper/luasnip-latex-snippets.nvim',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -58,7 +62,7 @@ require('lazy').setup({
       'hrsh7th/cmp-path',
 
       -- Adds a number of user-friendly snippets
-      'rafamadriz/friendly-snippets',
+      -- 'rafamadriz/friendly-snippets',
     },
   },
 
@@ -140,6 +144,9 @@ require('lazy').setup({
   },
   {
     'rebelot/kanagawa.nvim',
+    -- 'olimorris/onedarkpro.nvim',
+    -- 'marko-cerovac/material.nvim',
+    priority = 1000, -- Ensure it loads first
   },
 --  {
 --    -- Theme inspired by Atom
@@ -161,14 +168,18 @@ require('lazy').setup({
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
+        icons_enabled = true,
         theme = 'auto',
         component_separators = '|',
         section_separators = '',
       },
     },
   },
-
+  { -- easymotion successor
+    'smoka7/hop.nvim',
+    version = "*",
+    opts = {},
+  },
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
@@ -215,7 +226,10 @@ require('lazy').setup({
     -- see details below for full configuration options
     opts = {
       lsp = {
-        on_attach = _G.on_attach,
+        on_attach = function(client, bufnr)
+          require('lsp-setup')
+          on_attach(client, bufnr)
+        end,
         init_options = { editDelay = 0 },
       },
       mappings = true,

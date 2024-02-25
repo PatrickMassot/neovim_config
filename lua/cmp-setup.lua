@@ -13,6 +13,7 @@ cmp.setup {
   },
   completion = {
     completeopt = 'menu,menuone,noinsert',
+    autocomplete = false,
   },
   mapping = cmp.mapping.preset.insert {
     ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -47,6 +48,7 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'path' },
+    { name = 'vimtex' },
   },
 }
 

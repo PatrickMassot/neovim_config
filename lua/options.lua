@@ -5,8 +5,13 @@
 -- Set highlight on search
 vim.o.hlsearch = false
 
+-- Incremental search
+vim.o.incsearch = true
+
+vim.o.scrolloff = 8
+
 -- Make line numbers default
-vim.wo.number = true
+vim.wo.number = false
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
