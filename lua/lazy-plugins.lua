@@ -13,7 +13,7 @@ require('lazy').setup({
 
   -- Detect tabstop and shiftwidth automatically
   -- 'tpope/vim-sleuth',
-  
+
   -- LaTeX support
   'lervag/vimtex',
   'micangl/cmp-vimtex',
@@ -190,6 +190,7 @@ require('lazy').setup({
     branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
+      'debugloop/telescope-undo.nvim',
       -- Fuzzy Finder Algorithm which requires local dependencies to be built.
       -- Only load if `make` is available. Make sure you have the system
       -- requirements installed.

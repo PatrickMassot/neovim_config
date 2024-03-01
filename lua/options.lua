@@ -45,4 +45,6 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 vim.cmd("colorscheme kanagawa")
+
+vim.o.guifont = "JetBrainsMono Nerd Font:h20"
 -- vim: ts=2 sts=2 sw=2 et
