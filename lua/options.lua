@@ -10,6 +10,10 @@ vim.o.incsearch = true
 
 vim.o.scrolloff = 8
 
+vim.o.shiftwidth = 2
+
+vim.o.textwidth = 80
+
 -- Make line numbers default
 vim.wo.number = false
 
