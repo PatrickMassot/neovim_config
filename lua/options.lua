@@ -50,10 +50,14 @@ vim.o.termguicolors = true
 
 vim.cmd("colorscheme kanagawa")
 
+-- Neovide configuration
+
 vim.o.guifont = "JetBrainsMono Nerd Font:20"
 if vim.fn.hostname() == "fixe-massy" then
   vim.o.guifont = "JetBrainsMono Nerd Font:h12"
 end
+
+vim.g.neovide_cursor_vfx_mode = "pixiedust"
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
