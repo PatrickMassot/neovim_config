@@ -16,15 +16,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
 vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
 
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
-})
+vim.api.nvim_set_keymap('i', '<C-BS>', '<C-W>', {noremap = true})
 
 -- vim: ts=2 sts=2 sw=2 et

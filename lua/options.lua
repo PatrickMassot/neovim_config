@@ -50,5 +50,19 @@ vim.o.termguicolors = true
 
 vim.cmd("colorscheme kanagawa")
 
-vim.o.guifont = "JetBrainsMono Nerd Font:h20"
+vim.o.guifont = "JetBrainsMono Nerd Font:20"
+if vim.fn.hostname() == "fixe-massy" then
+  vim.o.guifont = "JetBrainsMono Nerd Font:h12"
+end
+
+-- [[ Highlight on yank ]]
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
 -- vim: ts=2 sts=2 sw=2 et
