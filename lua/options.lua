@@ -50,6 +50,8 @@ vim.o.termguicolors = true
 
 vim.cmd("colorscheme kanagawa")
 
+vim.cmd("let g:vimtex_quickfix_open_on_warning = 0")
+
 -- Neovide configuration
 
 vim.o.guifont = "JetBrainsMono Nerd Font:20"
