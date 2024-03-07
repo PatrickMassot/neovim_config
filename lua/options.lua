@@ -54,7 +54,7 @@ vim.cmd("let g:vimtex_quickfix_open_on_warning = 0")
 
 -- Neovide configuration
 
-vim.o.guifont = "JetBrainsMono Nerd Font:20"
+vim.o.guifont = "JetBrainsMono Nerd Font:h20"
 if vim.fn.hostname() == "fixe-massy" then
   vim.o.guifont = "JetBrainsMono Nerd Font:h12"
 end
