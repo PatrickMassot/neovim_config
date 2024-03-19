@@ -56,10 +56,34 @@ vim.cmd("let g:vimtex_quickfix_open_on_warning = 0")
 
 vim.o.guifont = "JetBrainsMono Nerd Font:h20"
 if vim.fn.hostname() == "portable-pmassot" then
-  vim.o.guifont = "JetBrainsMono Nerd Font:h9"
+  vim.o.guifont = "JetBrainsMono Nerd Font:h7"
 end
 if vim.fn.hostname() == "fixe-massy" then
   vim.o.guifont = "JetBrainsMono Nerd Font:h12"
+end
+
+
+if vim.g.neovide then
+  local map = vim.keymap.set
+
+  local function neovideScale(amount)
+    local temp = vim.g.neovide_scale_factor + amount
+
+    if temp < 0.5 then
+      return
+    end
+
+    vim.g.neovide_scale_factor = temp
+    vim.api.nvim_command("redraw!")
+  end
+
+  map("n", "<C-+>", function()
+    neovideScale(0.1)
+  end)
+
+  map("n", "<C-->", function()
+    neovideScale(-0.1)
+  end)
 end
 
 vim.g.neovide_cursor_vfx_mode = "pixiedust"
