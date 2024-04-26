@@ -38,6 +38,34 @@ require('lazy').setup({
     },
   },
 
+  -- Next two section are Neorg related.
+  {
+      "vhyrro/luarocks.nvim",
+      priority = 1000, -- We'd like this plugin to load first out of the rest
+      config = true, -- This automatically runs `require("luarocks-nvim").setup()`
+  },
+  {
+      "nvim-neorg/neorg",
+      dependencies = { "luarocks.nvim" },
+      -- put any other flags you wanted to pass to lazy here!
+      config = function()
+        require("neorg").setup({
+          load = {
+            ["core.defaults"] = {},
+            ["core.concealer"] = {},
+            ["core.dirman"] = {
+              config = {
+                workspaces = {
+                    notes = "~/Nextcloud/notes",
+                  },
+                default_workspace = "notes",
+                },
+              }
+            }
+        })
+      end,
+  },
+
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
@@ -213,6 +241,13 @@ require('lazy').setup({
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
     build = ':TSUpdate',
+    opts = {
+      ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
+      highlight = { enable = true },
+    },
+    config = function(_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+    end,
   },
   {
     'Julian/lean.nvim',
