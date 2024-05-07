@@ -212,8 +212,32 @@ require('lazy').setup({
       end,
     },
   },
-  {
-    'rebelot/kanagawa.nvim',
+  { 'catppuccin/nvim', name = 'catppuccin',
+		opts = {
+			term_colors = true,
+			transparent_background = false,
+			styles = {
+				comments = {},
+				conditionals = {},
+				loops = {},
+				functions = {},
+				keywords = {},
+				strings = {},
+				variables = {},
+				numbers = {},
+				booleans = {},
+				properties = {},
+				types = {},
+			},
+			color_overrides = {
+				mocha = {
+					base = "#000000",
+					mantle = "#000000",
+					crust = "#000000",
+				},
+			},
+    },
+    -- 'rebelot/kanagawa.nvim',
     -- 'olimorris/onedarkpro.nvim',
     -- 'marko-cerovac/material.nvim',
     priority = 1000, -- Ensure it loads first

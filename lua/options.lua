@@ -48,8 +48,8 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
-vim.cmd("colorscheme kanagawa")
-
+-- vim.cmd("colorscheme kanagawa")
+vim.cmd('colorscheme catppuccin " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha')
 vim.cmd("let g:vimtex_quickfix_open_on_warning = 0")
 
 -- Neovide configuration
@@ -86,7 +86,7 @@ if vim.g.neovide then
   end)
 end
 
-vim.g.neovide_cursor_vfx_mode = "pixiedust"
+-- vim.g.neovide_cursor_vfx_mode = "pixiedust"
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
