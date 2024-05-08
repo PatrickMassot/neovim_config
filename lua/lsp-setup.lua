@@ -82,7 +82,7 @@ local servers = {
   pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
-  html = { filetypes = { 'html', 'twig', 'hbs', jinja2s} },
+  html = { filetypes = { 'html', 'twig', 'hbs', 'jinja2s'} },
 
   lua_ls = {
     Lua = {
