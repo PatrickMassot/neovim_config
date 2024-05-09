@@ -67,6 +67,9 @@ require('lazy').setup({
   'micangl/cmp-vimtex',
   'evesdropper/luasnip-latex-snippets.nvim',
 
+  -- Generalizes C-a/C-x
+  'monaqa/dial.nvim',
+
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
