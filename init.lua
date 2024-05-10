@@ -79,5 +79,10 @@ require 'hop-setup'
 -- [[ Configure dial ]]
 -- (Generalized C-a and C-x)
 require 'dial-setup'
+
+-- [[ Configure tcomment ]]
+-- (Toggle comments)
+require 'tcomment-setup'
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

@@ -70,6 +70,9 @@ require('lazy').setup({
   -- Generalizes C-a/C-x
   'monaqa/dial.nvim',
 
+  -- Toggle comments
+  { 'tomtom/tcomment_vim', lazy = false },
+
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
