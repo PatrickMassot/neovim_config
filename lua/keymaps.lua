@@ -15,6 +15,7 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open float
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
+vim.keymap.set("n", "<leader>o", "<cmd>NvimTreeToggle<cr>")
 
 vim.api.nvim_set_keymap('i', '<C-BS>', '<C-W>', {noremap = true})
 
