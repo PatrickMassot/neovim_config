@@ -98,4 +98,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+
+if vim.fn.executable('rg') then
+  vim.o.grepprg = 'rg --hidden --vimgrep --no-heading --smart-case $*'
+  vim.o.grepformat = '%f:%l:%c:%m,%f:%l:%m'
+elseif vim.fn.filereadable('/usr/local/bin/grep') then  -- newer grep
+  vim.o.grepprg = '/usr/local/bin/grep'
+end
 -- vim: ts=2 sts=2 sw=2 et
