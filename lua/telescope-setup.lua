@@ -82,7 +82,7 @@ vim.keymap.set('n', '<leader>fG', ':LiveGrepGitRoot<cr>', { desc = '[F]ind by [G
 vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[F]ind [D]iagnostics' })
 vim.keymap.set('n', '<leader>fj', require('telescope.builtin').jumplist, { desc = '[F]ind [J]ump' })
 vim.keymap.set('n', '<leader>fr', require('telescope.builtin').lsp_references, { desc = '[F]ind [R]eferences' })
-vim.keymap.set('n', '<leader>fa', require('telescope.builtin').lsp_workspace_symbols, { desc = '[F]ind [A]ll symbols in workspace' })
+vim.keymap.set('n', '<leader>fa', require('telescope.builtin').lsp_dynamic_workspace_symbols, { desc = '[F]ind [A]ll symbols in workspace' })
 vim.keymap.set('n', '<leader>fu', require('telescope').extensions.ultisnips.ultisnips, { desc = '[F]ind [U]ltisnips snippets' })
 
 
