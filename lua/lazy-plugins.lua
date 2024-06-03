@@ -370,7 +370,16 @@ require('lazy').setup({
     }
   },
 
+  { 'kosayoda/nvim-lightbulb',
+    config = function()
+    require("nvim-lightbulb").setup({
+      autocmd = { enabled = true }
+    })
+    end,
+  },
+
   'andrewradev/switch.vim',
+
   { -- Edit kitty scrollback output
     'mikesmithgh/kitty-scrollback.nvim',
     enabled = true,
