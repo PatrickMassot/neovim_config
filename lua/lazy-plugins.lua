@@ -65,7 +65,17 @@ require('lazy').setup({
   -- LaTeX support
   'lervag/vimtex',
   'micangl/cmp-vimtex',
-  'evesdropper/luasnip-latex-snippets.nvim',
+  -- 'evesdropper/luasnip-latex-snippets.nvim',
+
+  -- Snippets using ultisnips and vim-snippets
+  {
+    "SirVer/ultisnips",
+    init = function()
+      vim.g.UltiSnipsExpandTrigger = "<tab>"
+    end,
+  },
+  { "honza/vim-snippets" },
+  "fhill2/telescope-ultisnips.nvim",
 
   -- Generalizes C-a/C-x
   'monaqa/dial.nvim',
@@ -135,13 +145,18 @@ require('lazy').setup({
     'hrsh7th/nvim-cmp',
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
-      {
-        'L3MON4D3/LuaSnip',
-        build = (function()
-          return 'make install_jsregexp'
-        end)(),
-      },
-      'saadparwaiz1/cmp_luasnip',
+      -- {
+      --   'L3MON4D3/LuaSnip',
+      --   build = (function()
+      --     return 'make install_jsregexp'
+      --   end)(),
+      -- },
+      -- 'saadparwaiz1/cmp_luasnip',
+
+      { 'quangnguyen30192/cmp-nvim-ultisnips',
+        config = function()
+          require("cmp_nvim_ultisnips").setup({})
+        end },
 
       -- Adds LSP completion capabilities
       'hrsh7th/cmp-nvim-lsp',

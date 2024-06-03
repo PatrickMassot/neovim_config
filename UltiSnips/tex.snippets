@@ -1,0 +1,77 @@
+extends texmath
+
+priority 50
+
+snippet "\\?b(egin)?" "begin{} / end{}" br
+\begin{${1}}
+	${0:${VISUAL}}
+\end{$1}
+endsnippet
+
+snippet "fr(ame)?" "begin{frame} / end{frame}" br
+\\begin{frame}
+  \\frametitle{${1:${VISUAL}}}
+  $0
+\\end{frame}
+endsnippet
+
+# factorisation diagram
+snippet fac
+\\begin{tikzcd}
+${1} \\rar["${2}"] \\dar[swap, "${3:π}"]        & ${4} \\\\   
+${5} \\ar[ur, dashed, swap, "∃!\\, ${6}"] &       
+\\end{tikzcd}
+${0}
+endsnippet
+# commutative square
+snippet square
+\\begin{tikzcd}
+${1} \\rar["${2}"] \\dar[swap, "${3:π}"]        & ${4}  \\dar["${5:π}"]\\\\   
+${6} \\rar[swap, "${8}"] &  ${9}     
+\\end{tikzcd} 
+${0}
+endsnippet
+# descent square
+snippet descente
+\\begin{tikzcd}
+${1} \\rar["${2}"] \\dar[swap, "${3:π}"]        & ${4}  \\dar["${5:π}"]\\\\   
+${6} \\rar[dashed, swap, "∃!\\, ${8}"] &  ${9}     
+\\end{tikzcd} 
+${0}
+endsnippet
+
+# algebra
+snippet algebra
+\begin{tikzcd} 
+${1} \ar[rr, "${2}"] &                                & ${3} \\
+               & ${4} \ar[ul, "${5}"]\ar[ur, swap, "${6}"] &
+\end{tikzcd}
+${0}
+endsnippet
+
+# short exact sequence
+snippet ses
+\begin{tikzcd} 
+0 \rar & ${1} \rar["${2}"] & ${3} \rar["${4}"] & ${5} \rar & 0
+\end{tikzcd}
+${0}
+endsnippet
+
+# morphism of short exact sequences
+snippet mses
+\begin{tikzcd} 
+0 \rar & ${1} \rar["${2}"] \dar["${3}"] & ${4} \rar["${5}"] \dar["${6}"] &
+${7}  \dar["${8}"] \rar & 0 \\
+0 \rar & ${9} \rar["${10}"] & ${11} \rar["${12}"] & ${13} \rar & 0
+\end{tikzcd}
+${0}
+endsnippet
+
+snippet pres
+⟨${1:S}\;|\;${2:R}⟩${0}
+endsnippet
+
+snippet todo
+\\textbf{TODO}${0}
+endsnippet
+# vim:ft=snippets:
