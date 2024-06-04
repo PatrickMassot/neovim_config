@@ -48,6 +48,9 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+-- Use file name as window title
+vim.opt.title = true
+
 -- vim.cmd("colorscheme kanagawa")
 vim.cmd('colorscheme catppuccin-macchiato " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha')
 vim.cmd("let g:vimtex_quickfix_open_on_warning = 0")
