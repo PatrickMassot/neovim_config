@@ -17,6 +17,15 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
 vim.keymap.set("n", "<leader>o", "<cmd>NvimTreeToggle<cr>")
 
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
+vim.keymap.set("i", "<C-h>", "<ESC><C-w>hi")
+vim.keymap.set("i", "<C-j>", "<ESC><C-w>ji")
+vim.keymap.set("i", "<C-k>", "<ESC><C-w>ki")
+vim.keymap.set("i", "<C-l>", "<ESC><C-w>li")
+
 vim.api.nvim_set_keymap('i', '<C-BS>', '<C-W>', {noremap = true})
 
 -- vim: ts=2 sts=2 sw=2 et
