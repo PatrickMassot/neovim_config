@@ -28,4 +28,7 @@ vim.keymap.set("i", "<C-l>", "<ESC><C-w>li")
 
 vim.api.nvim_set_keymap('i', '<C-BS>', '<C-W>', {noremap = true})
 
+-- Lean keymaps
+vim.keymap.set({"n", "i"}, "<C-S-X>", "<cmd>LeanRefreshFileDependencies<cr>")
+
 -- vim: ts=2 sts=2 sw=2 et
