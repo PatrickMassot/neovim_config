@@ -64,6 +64,9 @@ end
 if vim.fn.hostname() == "fixe-massy" then
   vim.o.guifont = "JetBrainsMono Nerd Font:h12"
 end
+if vim.fn.hostname() == "massot-orsay" then
+  vim.o.guifont = "JetBrainsMono Nerd Font:h12"
+end
 
 
 if vim.g.neovide then
