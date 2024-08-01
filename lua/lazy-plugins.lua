@@ -63,7 +63,14 @@ require('lazy').setup({
   -- 'tpope/vim-sleuth',
 
   -- LaTeX support
-  'lervag/vimtex',
+  {
+    "lervag/vimtex",
+    init = function()
+      vim.g.tex_flavor='latex'
+      vim.g.vimtex_view_method = 'zathura'
+      vim.g.vimtex_quickfix_open_on_warning = '0'
+    end,
+  },
   'micangl/cmp-vimtex',
   -- 'evesdropper/luasnip-latex-snippets.nvim',
 
