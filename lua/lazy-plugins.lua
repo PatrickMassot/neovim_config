@@ -353,6 +353,7 @@ require('lazy').setup({
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
+  'lewis6991/satellite.nvim',
   {
     'Julian/lean.nvim',
     event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
