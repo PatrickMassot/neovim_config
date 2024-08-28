@@ -482,7 +482,13 @@ require('lazy').setup({
         desc = "Quickfix List (Trouble)",
       },
     },
-  }
+  },
+  {
+    'MagicDuck/grug-far.nvim',
+    config = function()
+      require('grug-far').setup({});
+    end
+  },
 }, {})
 
 -- vim: ts=2 sts=2 sw=2 et
