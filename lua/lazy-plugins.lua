@@ -108,35 +108,30 @@ require('lazy').setup({
       'folke/neodev.nvim',
     },
   },
+  { -- Neorg notes
+    "nvim-neorg/neorg",
+    lazy = false,
+    version = "*",
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {},
+          ["core.concealer"] = {},
+          ["core.dirman"] = {
+            config = {
+              workspaces = {
+                notes = "~/Nextcloud/notes",
+              },
+              default_workspace = "notes",
+            },
+          },
+        },
+      }
 
-  -- Next two section are Neorg related.
-  {
-      "vhyrro/luarocks.nvim",
-      priority = 1000, -- We'd like this plugin to load first out of the rest
-      config = true, -- This automatically runs `require("luarocks-nvim").setup()`
+      vim.wo.foldlevel = 99
+      vim.wo.conceallevel = 2
+    end,
   },
-  {
-      "nvim-neorg/neorg",
-      dependencies = { "luarocks.nvim" },
-      -- put any other flags you wanted to pass to lazy here!
-      config = function()
-        require("neorg").setup({
-          load = {
-            ["core.defaults"] = {},
-            ["core.concealer"] = {},
-            ["core.dirman"] = {
-              config = {
-                workspaces = {
-                    notes = "~/Nextcloud/notes",
-                  },
-                default_workspace = "notes",
-                },
-              }
-            }
-        })
-      end,
-  },
-
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
