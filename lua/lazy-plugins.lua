@@ -108,16 +108,6 @@ require('lazy').setup({
       'folke/neodev.nvim',
     },
   },
-  { -- neovim in Firefox
-      'glacambre/firenvim',
-
-      -- Lazy load firenvim
-      -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
-      lazy = not vim.g.started_by_firenvim,
-      build = function()
-          vim.fn["firenvim#install"](0)
-      end
-  },
 
   -- Next two section are Neorg related.
   {
@@ -175,7 +165,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  require 'which-key-setup',
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
