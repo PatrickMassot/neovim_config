@@ -55,6 +55,7 @@ end
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
 
+  'andymass/vim-matchup',
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
