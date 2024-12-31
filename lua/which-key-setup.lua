@@ -18,6 +18,9 @@ return {
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     opts = {
+      triggers = {
+        { "<auto>", mode = "nso" },
+      },
       icons = {
         -- set icon mappings to true if you have a Nerd Font
         mappings = vim.g.have_nerd_font,
