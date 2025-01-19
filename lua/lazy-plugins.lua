@@ -91,6 +91,17 @@ require('lazy').setup({
   -- Toggle comments
   { 'tomtom/tcomment_vim', lazy = false },
 
+  { -- Sane notifications (includes filtering lean.nvim debug messages)
+    'rcarriga/nvim-notify',
+    opts = { render = "wrapped-compact", max_width = 100 },
+    init = function()
+      vim.notify = function(...)
+        vim.notify = require("notify")
+        return vim.notify(...)
+      end
+    end,
+  },
+
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
