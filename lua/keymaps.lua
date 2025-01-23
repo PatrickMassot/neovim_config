@@ -27,6 +27,8 @@ vim.keymap.set("i", "<C-h>", "<ESC><C-w>hi")
 vim.keymap.set("i", "<C-j>", "<ESC><C-w>ji")
 vim.keymap.set("i", "<C-k>", "<ESC><C-w>ki")
 vim.keymap.set("i", "<C-l>", "<ESC><C-w>li")
+vim.keymap.set("n", "<C->>", "<C-w>10>")
+vim.keymap.set("n", "<C-<>", "<C-w>10<")
 
 vim.api.nvim_set_keymap('i', '<C-BS>', '<C-W>', {noremap = true})
 
