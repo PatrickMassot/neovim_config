@@ -69,6 +69,31 @@ local servers = {
   -- tsserver = {},
   html = { filetypes = { 'html', 'twig', 'hbs', 'jinja2s'} },
 
+  ltex = {
+    filetypes = {
+      'markdown',
+      'latex',
+      'norg',
+      'gitcommit',
+    },
+    ltex = {
+      language = "auto",
+      diagnosticSeverity = "information",
+      sentenceCacheSize = 2000,
+      additionalRules = {
+        enablePickyRules = true,
+        motherTongue = "fr",
+      },
+      enabledRules = {
+        en = { "EN_CONSISTENT_APOS" },
+      },
+      disabledRules = {
+        fr = { "APOS_TYP", "FRENCH_WHITESPACE", "CHANGE", "ISSUE" },
+        en = { "DASH_RULE", "TWO_HYPHENS", "CHANGE", "ISSUE" },
+      },
+    }
+  },
+
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
