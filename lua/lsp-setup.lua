@@ -73,8 +73,6 @@ local servers = {
     filetypes = {
       'markdown',
       'latex',
-      'norg',
-      'gitcommit',
     },
     ltex = {
       language = "auto",
