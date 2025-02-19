@@ -52,39 +52,6 @@ require 'lazy-bootstrap'
 -- [[ Configure plugins ]]
 require 'lazy-plugins'
 
--- [[ Setting options ]]
-require 'options'
-
--- [[ Basic Keymaps ]]
-require 'keymaps'
-
--- [[ Configure Telescope ]]
--- (fuzzy finder)
-require 'telescope-setup'
-
--- [[ Configure Treesitter ]]
--- (syntax parser for highlighting)
-require 'treesitter-setup'
-
--- [[ Configure LSP ]]
--- (Language Server Protocol)
-require 'lsp-setup'
-
--- [[ Configure nvim-cmp ]]
--- (completion)
-require 'cmp-setup'
-
--- [[ Configure hop ]]
--- (motion)
-require 'hop-setup'
-
--- [[ Configure dial ]]
--- (Generalized C-a and C-x)
-require 'dial-setup'
-
--- [[ Configure tcomment ]]
--- (Toggle comments)
-require 'tcomment-setup'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
