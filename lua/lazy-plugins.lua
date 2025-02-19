@@ -381,10 +381,6 @@ require('lazy').setup({
     -- see details below for full configuration options
     opts = {
       lsp = {
-        on_attach = function(client, bufnr)
-          require('lsp-setup')
-          on_attach(client, bufnr)
-        end,
         init_options = { editDelay = 0 },
       },
       mappings = true,
