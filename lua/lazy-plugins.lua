@@ -530,7 +530,7 @@ require('lazy').setup({
 { url = "https://codeberg.org/JoshuaCrewe/telescope-notmuch.nvim.git",
   config = function()
             require"telescope".load_extension("notmuch")
-            vim.keymap.set('n', '<c-t>', '/To:<CR>$a <ESC><cmd>Telescope notmuch theme=cursor<CR>')
+            vim.keymap.set('n', '<c-t>', '/^To:<CR>$a <ESC><cmd>Telescope notmuch theme=cursor<CR>')
             vim.keymap.set('n', '<c-s>', '/Subject:<CR>$a ')
         end,
   ft = {'mail'}
