@@ -294,7 +294,7 @@ require('lazy').setup({
     -- 'marko-cerovac/material.nvim',
     priority = 1000, -- Ensure it loads first
   },
-  { 'projekt0n/github-nvim-theme', name = 'github-theme' },
+  { 'Mofiqul/vscode.nvim' },
 --  {
 --    -- Theme inspired by Atom
 --    'navarasu/onedark.nvim',
