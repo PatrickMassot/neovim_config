@@ -295,6 +295,7 @@ require('lazy').setup({
     priority = 1000, -- Ensure it loads first
   },
   { 'Mofiqul/vscode.nvim' },
+  { 'EdenEast/nightfox.nvim' },
 --  {
 --    -- Theme inspired by Atom
 --    'navarasu/onedark.nvim',
