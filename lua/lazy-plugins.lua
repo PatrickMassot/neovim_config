@@ -198,8 +198,10 @@ require('lazy').setup({
       signs = {
         add = { text = '+' },
         change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
+        delete = { text = '' },
+        topdelete = { text = '' },
+        -- delete = { text = '_' },
+        -- topdelete = { text = '‾' },
         changedelete = { text = '~' },
       },
       on_attach = function(bufnr)
@@ -536,6 +538,7 @@ require('lazy').setup({
         end,
   ft = {'mail'}
 },
+{ 'subnut/nvim-ghost.nvim' },
 }, {})
 
 -- vim: ts=2 sts=2 sw=2 et
