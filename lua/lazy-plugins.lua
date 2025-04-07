@@ -538,6 +538,48 @@ require('lazy').setup({
         end,
   ft = {'mail'}
 },
+-- {
+--   "robitx/gp.nvim",
+--   config = function()
+--     local conf = {
+--       whisper = {
+--         rec_cmd = "sox",
+--         endpoint = "http://127.0.0.1:7447/inference",
+--       },
+--       curl_params = { "--proxy", "http://127.0.0.1:8080" },
+--       openai_api_key = {
+--         "cat",
+--         "/home/pmassot/.config/nvim/openai.token",
+--       },
+--       hooks = {
+--         -- GpInspectPlugin provides a detailed inspection of the plugin state
+--         InspectPlugin = function(plugin, params)
+--           local bufnr = vim.api.nvim_create_buf(false, true)
+--           local copy = vim.deepcopy(plugin)
+--           local key = copy.config.openai_api_key or ""
+--           copy.config.openai_api_key = key:sub(1, 3) .. string.rep("*", #key - 6) .. key:sub(-3)
+--           local plugin_info = string.format("Plugin structure:\n%s", vim.inspect(copy))
+--           local params_info = string.format("Command params:\n%s", vim.inspect(params))
+--           local lines = vim.split(plugin_info .. "\n" .. params_info, "\n")
+--           vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
+--           vim.api.nvim_win_set_buf(0, bufnr)
+--         end,
+--
+--         -- GpInspectLog for checking the log file
+--         InspectLog = function(plugin, params)
+--           local log_file = plugin.config.log_file
+--           local buffer = plugin.helpers.get_buffer(log_file)
+--           if not buffer then
+--             vim.cmd("e " .. log_file)
+--           else
+--             vim.cmd("buffer " .. buffer)
+--           end
+--         end,
+--         }
+--       };
+--     require("gp").setup(conf)
+--   end,
+-- },
 { 'subnut/nvim-ghost.nvim' },
 }, {})
 
