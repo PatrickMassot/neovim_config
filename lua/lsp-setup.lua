@@ -83,4 +83,11 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
+require("lspconfig").tinymist.setup({
+  offset_encoding = "utf-8",
+  settings = {
+    formatterMode = "typstyle",
+    exportPdf = "onSave",
+  },
+})
 -- vim: ts=2 sts=2 sw=2 et
