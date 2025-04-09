@@ -534,6 +534,8 @@ require('lazy').setup({
   config = function()
             require"telescope".load_extension("notmuch")
             vim.keymap.set('n', '<c-t>', '/^To:<CR>$a <ESC><cmd>Telescope notmuch theme=cursor<CR>')
+            vim.keymap.set('n', '<leader>p', '<cmd>Telescope notmuch theme=cursor<CR>')
+            vim.keymap.set('n', '<leader>x', 'a,<ESC><cmd>Telescope notmuch theme=cursor<CR>')
             vim.keymap.set('n', '<c-s>', '/Subject:<CR>$a ')
         end,
   ft = {'mail'}
