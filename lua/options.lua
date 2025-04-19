@@ -112,4 +112,40 @@ if vim.fn.executable('rg') then
 elseif vim.fn.filereadable('/usr/local/bin/grep') then  -- newer grep
   vim.o.grepprg = '/usr/local/bin/grep'
 end
+
+-- Affichage diagnostiques en ligne
+vim.diagnostic.config({virtual_text=true})
+
+-- Raccourci pour utiliser les diagnostiques en lignes virtuelles
+-- https://www.reddit.com/r/neovim/comments/1jo9oe9/i_set_up_my_config_to_use_virtual_lines_for/
+local diag_config1 = {
+  virtual_text = {
+    severity = {
+      max = vim.diagnostic.severity.WARN,
+    },
+  },
+  virtual_lines = {
+    severity = {
+      min = vim.diagnostic.severity.ERROR,
+    },
+  },
+}
+local diag_config2 = {
+  virtual_text = true,
+  virtual_lines = false,
+}
+vim.diagnostic.config(diag_config2)
+local diag_config_basic = true
+vim.keymap.set("n", "gK", function()
+  diag_config_basic = not diag_config_basic
+  if diag_config_basic then
+    vim.diagnostic.config(diag_config2)
+  else
+    vim.diagnostic.config(diag_config1)
+  end
+end, { desc = "Toggle diagnostic virtual_lines" })
+
+-- Bordure popups (par exemple S-k)
+vim.o.winborder = 'rounded'
+
 -- vim: ts=2 sts=2 sw=2 et
