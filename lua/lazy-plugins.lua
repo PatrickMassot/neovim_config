@@ -83,10 +83,10 @@ require('lazy').setup({
   {
     "lervag/vimtex",
     init = function()
-      vim.g.tex_flavor='latex'
+      vim.g.tex_flavor = 'latex'
       vim.g.vimtex_view_method = 'zathura'
       vim.g.vimtex_quickfix_open_on_warning = '0'
-      require('lean.abbreviations').enable('*.tex', {leader = ','})
+      require('lean.abbreviations').enable('*.tex', { leader = ',' })
     end,
   },
   'micangl/cmp-vimtex',
@@ -131,7 +131,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -174,10 +174,12 @@ require('lazy').setup({
       -- },
       -- 'saadparwaiz1/cmp_luasnip',
 
-      { 'quangnguyen30192/cmp-nvim-ultisnips',
+      {
+        'quangnguyen30192/cmp-nvim-ultisnips',
         config = function()
           require("cmp_nvim_ultisnips").setup({})
-        end },
+        end
+      },
 
       -- Adds LSP completion capabilities
       'hrsh7th/cmp-nvim-lsp',
@@ -204,6 +206,7 @@ require('lazy').setup({
         -- topdelete = { text = '‾' },
         changedelete = { text = '~' },
       },
+      signcolumn = false,
       on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
 
@@ -266,30 +269,32 @@ require('lazy').setup({
       end,
     },
   },
-  { 'catppuccin/nvim', name = 'catppuccin',
-		opts = {
-			term_colors = true,
-			transparent_background = false,
-			styles = {
-				comments = {},
-				conditionals = {},
-				loops = {},
-				functions = {},
-				keywords = {},
-				strings = {},
-				variables = {},
-				numbers = {},
-				booleans = {},
-				properties = {},
-				types = {},
-			},
-			color_overrides = {
-				mocha = {
-					base = "#000000",
-					mantle = "#000000",
-					crust = "#000000",
-				},
-			},
+  {
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    opts = {
+      term_colors = true,
+      transparent_background = false,
+      styles = {
+        comments = {},
+        conditionals = {},
+        loops = {},
+        functions = {},
+        keywords = {},
+        strings = {},
+        variables = {},
+        numbers = {},
+        booleans = {},
+        properties = {},
+        types = {},
+      },
+      color_overrides = {
+        mocha = {
+          base = "#000000",
+          mantle = "#000000",
+          crust = "#000000",
+        },
+      },
     },
     -- 'rebelot/kanagawa.nvim',
     -- 'olimorris/onedarkpro.nvim',
@@ -298,19 +303,19 @@ require('lazy').setup({
   },
   { 'Mofiqul/vscode.nvim' },
   { 'EdenEast/nightfox.nvim' },
---  {
---    -- Theme inspired by Atom
---    'navarasu/onedark.nvim',
---    priority = 1000,
---    lazy = false,
---    config = function()
---      require('onedark').setup {
---        -- Set a style preset. 'dark' is default.
---        style = 'dark', -- dark, darker, cool, deep, warm, warmer, light
---      }
---      require('onedark').load()
---    end,
---  },
+  --  {
+  --    -- Theme inspired by Atom
+  --    'navarasu/onedark.nvim',
+  --    priority = 1000,
+  --    lazy = false,
+  --    config = function()
+  --      require('onedark').setup {
+  --        -- Set a style preset. 'dark' is default.
+  --        style = 'dark', -- dark, darker, cool, deep, warm, warmer, light
+  --      }
+  --      require('onedark').load()
+  --    end,
+  --  },
 
   {
     -- Set lualine as statusline
@@ -404,14 +409,17 @@ require('lazy').setup({
         -- (comma is a popular choice on French keyboards)
         leader = ',',
       },
+      infoview = {
+        goal_markers = { unsolved = '', accomplished = '✓' },
+      },
     }
   },
-
-  { 'kosayoda/nvim-lightbulb',
+  {
+    'kosayoda/nvim-lightbulb',
     config = function()
-    require("nvim-lightbulb").setup({
-      autocmd = { enabled = true }
-    })
+      require("nvim-lightbulb").setup({
+        autocmd = { enabled = true }
+      })
     end,
   },
 
@@ -509,9 +517,9 @@ require('lazy').setup({
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
     config = function()
-        require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
-        })
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
     end
   },
   {
@@ -519,70 +527,71 @@ require('lazy').setup({
     opts = {},
     -- Optional dependencies
     dependencies = {
-       "nvim-treesitter/nvim-treesitter",
-       "nvim-tree/nvim-web-devicons"
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons"
     },
   },
-{
+  {
     'MeanderingProgrammer/render-markdown.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {},
-},
-{ url = "https://codeberg.org/JoshuaCrewe/telescope-notmuch.nvim.git",
-  config = function()
-            require"telescope".load_extension("notmuch")
-            vim.keymap.set('n', '<c-t>', '/^To:<CR>$a <ESC><cmd>Telescope notmuch theme=cursor<CR>')
-            vim.keymap.set('n', '<leader>p', '<cmd>Telescope notmuch theme=cursor<CR>')
-            vim.keymap.set('n', '<leader>x', 'a,<ESC><cmd>Telescope notmuch theme=cursor<CR>')
-            vim.keymap.set('n', '<c-s>', '/Subject:<CR>$a ')
-        end,
-  ft = {'mail'}
-},
--- {
---   "robitx/gp.nvim",
---   config = function()
---     local conf = {
---       whisper = {
---         rec_cmd = "sox",
---         endpoint = "http://127.0.0.1:7447/inference",
---       },
---       curl_params = { "--proxy", "http://127.0.0.1:8080" },
---       openai_api_key = {
---         "cat",
---         "/home/pmassot/.config/nvim/openai.token",
---       },
---       hooks = {
---         -- GpInspectPlugin provides a detailed inspection of the plugin state
---         InspectPlugin = function(plugin, params)
---           local bufnr = vim.api.nvim_create_buf(false, true)
---           local copy = vim.deepcopy(plugin)
---           local key = copy.config.openai_api_key or ""
---           copy.config.openai_api_key = key:sub(1, 3) .. string.rep("*", #key - 6) .. key:sub(-3)
---           local plugin_info = string.format("Plugin structure:\n%s", vim.inspect(copy))
---           local params_info = string.format("Command params:\n%s", vim.inspect(params))
---           local lines = vim.split(plugin_info .. "\n" .. params_info, "\n")
---           vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
---           vim.api.nvim_win_set_buf(0, bufnr)
---         end,
---
---         -- GpInspectLog for checking the log file
---         InspectLog = function(plugin, params)
---           local log_file = plugin.config.log_file
---           local buffer = plugin.helpers.get_buffer(log_file)
---           if not buffer then
---             vim.cmd("e " .. log_file)
---           else
---             vim.cmd("buffer " .. buffer)
---           end
---         end,
---         }
---       };
---     require("gp").setup(conf)
---   end,
--- },
-{ 'subnut/nvim-ghost.nvim' },
+  },
+  {
+    url = "https://codeberg.org/JoshuaCrewe/telescope-notmuch.nvim.git",
+    config = function()
+      require "telescope".load_extension("notmuch")
+      vim.keymap.set('n', '<c-t>', '/^To:<CR>$a <ESC><cmd>Telescope notmuch theme=cursor<CR>')
+      vim.keymap.set('n', '<leader>p', '<cmd>Telescope notmuch theme=cursor<CR>')
+      vim.keymap.set('n', '<leader>x', 'a,<ESC><cmd>Telescope notmuch theme=cursor<CR>')
+      vim.keymap.set('n', '<c-s>', '/Subject:<CR>$a ')
+    end,
+    ft = { 'mail' }
+  },
+  -- {
+  --   "robitx/gp.nvim",
+  --   config = function()
+  --     local conf = {
+  --       whisper = {
+  --         rec_cmd = "sox",
+  --         endpoint = "http://127.0.0.1:7447/inference",
+  --       },
+  --       curl_params = { "--proxy", "http://127.0.0.1:8080" },
+  --       openai_api_key = {
+  --         "cat",
+  --         "/home/pmassot/.config/nvim/openai.token",
+  --       },
+  --       hooks = {
+  --         -- GpInspectPlugin provides a detailed inspection of the plugin state
+  --         InspectPlugin = function(plugin, params)
+  --           local bufnr = vim.api.nvim_create_buf(false, true)
+  --           local copy = vim.deepcopy(plugin)
+  --           local key = copy.config.openai_api_key or ""
+  --           copy.config.openai_api_key = key:sub(1, 3) .. string.rep("*", #key - 6) .. key:sub(-3)
+  --           local plugin_info = string.format("Plugin structure:\n%s", vim.inspect(copy))
+  --           local params_info = string.format("Command params:\n%s", vim.inspect(params))
+  --           local lines = vim.split(plugin_info .. "\n" .. params_info, "\n")
+  --           vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
+  --           vim.api.nvim_win_set_buf(0, bufnr)
+  --         end,
+  --
+  --         -- GpInspectLog for checking the log file
+  --         InspectLog = function(plugin, params)
+  --           local log_file = plugin.config.log_file
+  --           local buffer = plugin.helpers.get_buffer(log_file)
+  --           if not buffer then
+  --             vim.cmd("e " .. log_file)
+  --           else
+  --             vim.cmd("buffer " .. buffer)
+  --           end
+  --         end,
+  --         }
+  --       };
+  --     require("gp").setup(conf)
+  --   end,
+  -- },
+  { 'subnut/nvim-ghost.nvim' },
 }, {})
 
 -- vim: ts=2 sts=2 sw=2 et
