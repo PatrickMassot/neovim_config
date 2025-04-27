@@ -206,7 +206,7 @@ require('lazy').setup({
         -- topdelete = { text = '‾' },
         changedelete = { text = '~' },
       },
-      signcolumn = false,
+      signcolumn = true,
       on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
 
@@ -342,7 +342,7 @@ require('lazy').setup({
   -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
+    -- branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
       'debugloop/telescope-undo.nvim',
