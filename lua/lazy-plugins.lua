@@ -531,13 +531,13 @@ require('lazy').setup({
       "nvim-tree/nvim-web-devicons"
     },
   },
-  {
-    'MeanderingProgrammer/render-markdown.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
-    ---@module 'render-markdown'
-    ---@type render.md.UserConfig
-    opts = {},
-  },
+  -- {
+  --   'MeanderingProgrammer/render-markdown.nvim',
+  --   dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+  --   ---@module 'render-markdown'
+  --   ---@type render.md.UserConfig
+  --   opts = {},
+  -- },
   {
     url = "https://codeberg.org/JoshuaCrewe/telescope-notmuch.nvim.git",
     config = function()
