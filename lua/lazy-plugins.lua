@@ -409,9 +409,7 @@ require('lazy').setup({
         -- (comma is a popular choice on French keyboards)
         leader = ',',
       },
-      infoview = {
-        goal_markers = { unsolved = '', accomplished = '✓' },
-      },
+      goal_markers = { accomplished = '✓' },
     }
   },
   {
