@@ -101,7 +101,7 @@ require('lazy').setup({
   },
   { "honza/vim-snippets" },
   "fhill2/telescope-ultisnips.nvim",
-
+  "jvgrootveld/telescope-zoxide",
   -- Generalizes C-a/C-x
   'monaqa/dial.nvim',
 

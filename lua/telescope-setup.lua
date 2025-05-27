@@ -20,6 +20,7 @@ require('telescope').setup {
 pcall(require('telescope').load_extension, 'fzf')
 
 require('telescope').load_extension('ultisnips')
+require("telescope").load_extension('zoxide')
 
 -- Telescope live_grep in git root
 -- Function to find the git root directory based on the current buffer's path
@@ -89,6 +90,6 @@ vim.keymap.set('n', '<leader>fj', require('telescope.builtin').jumplist, { desc 
 vim.keymap.set('n', '<leader>fr', require('telescope.builtin').lsp_references, { desc = '[F]ind [R]eferences' })
 vim.keymap.set('n', '<leader>fa', require('telescope.builtin').lsp_dynamic_workspace_symbols, { desc = '[F]ind [A]ll symbols in workspace' })
 vim.keymap.set('n', '<leader>fu', require('telescope').extensions.ultisnips.ultisnips, { desc = '[F]ind [U]ltisnips snippets' })
-
+vim.keymap.set("n", "<leader>fc", require("telescope").extensions.zoxide.list)
 
 -- vim: ts=2 sts=2 sw=2 et
