@@ -37,6 +37,9 @@ vim.defer_fn(function()
           ['if'] = '@function.inner',
           ['ac'] = '@class.outer',
           ['ic'] = '@class.inner',
+          ['i$'] = '@typst_math.inner',
+          ['a$'] =  '@typst_math.outer',
+          ['fn'] = '@typst_function.name',
         },
       },
       move = {
