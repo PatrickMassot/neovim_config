@@ -88,6 +88,7 @@ require("lspconfig").tinymist.setup({
   settings = {
     formatterMode = "typstyle",
     exportPdf = "onSave",
+    semanticTokens = "disable"
   },
 })
 -- vim: ts=2 sts=2 sw=2 et

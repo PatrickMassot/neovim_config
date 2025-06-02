@@ -369,7 +369,7 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
+      ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "typst" },
       highlight = { enable = true },
     },
     config = function(_, opts)
