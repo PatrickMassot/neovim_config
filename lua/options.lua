@@ -14,6 +14,10 @@ vim.o.shiftwidth = 2
 
 vim.o.textwidth = 80
 
+-- Split opening
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
 -- Make line numbers default
 vim.wo.number = false
 
