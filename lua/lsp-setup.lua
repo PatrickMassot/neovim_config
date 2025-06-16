@@ -85,6 +85,7 @@ mason_lspconfig.setup {
 
 require("lspconfig").tinymist.setup({
   offset_encoding = "utf-8",
+  single_file_support = true,
   settings = {
     formatterMode = "typstyle",
     exportPdf = "onSave",

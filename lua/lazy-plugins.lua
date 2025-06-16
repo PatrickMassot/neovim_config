@@ -590,6 +590,12 @@ require('lazy').setup({
   --   end,
   -- },
   { 'subnut/nvim-ghost.nvim' },
+  {
+    'chomosuke/typst-preview.nvim',
+    lazy = false, -- or ft = 'typst'
+    version = '1.*',
+    opts = {},  -- lazy.nvim will implicitly calls `setup {}`
+  }
 }, {})
 
 -- vim: ts=2 sts=2 sw=2 et
