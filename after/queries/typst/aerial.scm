@@ -3,6 +3,7 @@
   (#set! "kind" "Interface")) @symbol
 
 ((code)
- (label) @name
+ (label) @name @symbol 
+ (#gsub! @name "<(.*)>" "%1")
  (#set! "kind" "Class")
- ) @symbol 
+ ) 
