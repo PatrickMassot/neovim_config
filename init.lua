@@ -74,10 +74,6 @@ require 'treesitter-setup'
 -- (completion)
 -- require 'cmp-setup'
 
--- [[ Configure hop ]]
--- (motion)
-require 'hop-setup'
-
 -- [[ Configure dial ]]
 -- (Generalized C-a and C-x)
 require 'dial-setup'
