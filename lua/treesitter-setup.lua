@@ -1,5 +1,16 @@
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
+
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.mail = {
+  install_info = {
+    url = "~/soft/tree-sitter-mail/", -- local path or git repo
+    files = {"src/parser.c"}, -- note that some parsers also require src/scanner.c or src/scanner.cc
+    generate_requires_npm = false, -- if stand-alone parser without npm dependencies
+    requires_generate_from_grammar = false, -- if folder contains pre-generated src/parser.c
+  },
+}
+
 -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
