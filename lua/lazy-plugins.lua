@@ -973,7 +973,7 @@ require('lazy').setup({
   --     require("gp").setup(conf)
   --   end,
   -- },
-  { 'subnut/nvim-ghost.nvim' },
+  -- { 'subnut/nvim-ghost.nvim' },
   {
     'chomosuke/typst-preview.nvim',
     lazy = false, -- or ft = 'typst'
