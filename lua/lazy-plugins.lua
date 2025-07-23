@@ -69,6 +69,14 @@
 -- })
 
 require('lazy').setup({
+    performance = {
+        rtp = {
+            disabled_plugins = {
+                -- disable built-in matchparen plugin
+                "matchparen",
+            },
+        },
+    },
   -- NOTE: First, some plugins that don't require any configuration
 
   -- 'andymass/vim-matchup',
