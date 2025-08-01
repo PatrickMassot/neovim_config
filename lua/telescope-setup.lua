@@ -19,8 +19,10 @@ require('telescope').setup {
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
-require('telescope').load_extension('ultisnips')
+-- require('telescope').load_extension('ultisnips')
+require('telescope').load_extension('luasnip')
 require("telescope").load_extension('zoxide')
+require("telescope").load_extension("ui-select")
 
 -- Telescope live_grep in git root
 -- Function to find the git root directory based on the current buffer's path
@@ -89,7 +91,8 @@ vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { de
 vim.keymap.set('n', '<leader>fj', require('telescope.builtin').jumplist, { desc = '[F]ind [J]ump' })
 vim.keymap.set('n', '<leader>fr', require('telescope.builtin').lsp_references, { desc = '[F]ind [R]eferences' })
 vim.keymap.set('n', '<leader>fa', require('telescope.builtin').lsp_dynamic_workspace_symbols, { desc = '[F]ind [A]ll symbols in workspace' })
-vim.keymap.set('n', '<leader>fu', require('telescope').extensions.ultisnips.ultisnips, { desc = '[F]ind [U]ltisnips snippets' })
+-- vim.keymap.set('n', '<leader>fu', require('telescope').extensions.ultisnips.ultisnips, { desc = '[F]ind [U]ltisnips snippets' })
+vim.keymap.set('n', '<leader>fl', require('telescope').extensions.luasnip.luasnip, { desc = '[F]ind [L]uaSnip snippets' })
 vim.keymap.set("n", "<leader>fc", require("telescope").extensions.zoxide.list)
 
 -- vim: ts=2 sts=2 sw=2 et

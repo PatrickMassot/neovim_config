@@ -82,6 +82,8 @@ require 'dial-setup'
 -- (Toggle comments)
 require 'tcomment-setup'
 
+require 'luasnip-setup'
+
 require 'user-commands'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
