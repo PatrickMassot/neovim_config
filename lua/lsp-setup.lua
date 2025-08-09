@@ -3,7 +3,7 @@
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
 
 -- Border for diagnostics
-vim.diagnostic.config{ severity_sort = true, float = { border = 'rounded' } }
+vim.diagnostic.config { severity_sort = true, float = { border = 'rounded' } }
 
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
@@ -24,7 +24,7 @@ local servers = {
   pyright = {},
   rust_analyzer = {},
   -- tsserver = {},
-  html = { filetypes = { 'html', 'twig', 'hbs', 'jinja2s'} },
+  html = { filetypes = { 'html', 'twig', 'hbs', 'jinja2s' } },
 
   -- ltex = {
   --   filetypes = {
