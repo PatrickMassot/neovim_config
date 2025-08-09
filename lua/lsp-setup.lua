@@ -88,5 +88,9 @@ require("lspconfig").tinymist.setup({
     exportPdf = "onSave",
     semanticTokens = "disable"
   },
+  flags = {
+    allow_incremental_sync = false,
+    debounce_text_changes = 250       -- In ms
+  }
 })
 -- vim: ts=2 sts=2 sw=2 et
