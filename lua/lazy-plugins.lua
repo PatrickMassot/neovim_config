@@ -979,9 +979,22 @@ require('lazy').setup({
     'chomosuke/typst-preview.nvim',
     lazy = false, -- or ft = 'typst'
     version = '1.*',
-    opts = {},  -- lazy.nvim will implicitly calls `setup {}`
     opts = {open_cmd = 'firefox %s -P typst-preview --class typst-preview'},  -- lazy.nvim will implicitly calls `setup {}`
   },
+  {
+    "eero-lehtinen/oklch-color-picker.nvim",
+    event = "VeryLazy",
+    version = "*",
+    keys = {
+      -- One handed keymap recommended, you will be using the mouse
+      {
+        "<leader>v",
+        function() require("oklch-color-picker").pick_under_cursor() end,
+        desc = "Color pick under cursor",
+      },
+    },
+    ---@type oklch.Opts
+    opts = {},
   }
 }, {})
 
