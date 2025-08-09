@@ -35,7 +35,16 @@ vim.keymap.set("i", "<C-<>", "<ESC><C-w>10<i")
 vim.api.nvim_set_keymap('i', '<C-BS>', '<C-W>', {noremap = true})
 
 -- Lean keymaps
-vim.keymap.set({"n", "i"}, "<C-S-X>", "<cmd>LeanRefreshFileDependencies<cr>")
+vim.keymap.set({"n", "i"}, "<C-S-X>", function()
+  if vim.bo.filetype == "lean" then
+    vim.cmd("LeanRefreshFileDependencies")
+  else
+    vim.cmd(":w")
+    vim.cmd(":e")
+  end
+end)
+
+vim.keymap.set({"n"}, "<C-p>", "<cmd>TypstPreview<cr>")
 
 -- LuaSnipt keymaps
 vim.keymap.set({"i"}, "<C-c>", '<cmd>lua require("luasnip.extras.select_choice")()<cr>')
