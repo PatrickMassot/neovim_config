@@ -80,17 +80,27 @@ mason_lspconfig.setup {
 --   end,
 -- }
 
-require("lspconfig").tinymist.setup({
-  offset_encoding = "utf-8",
-  single_file_support = true,
-  settings = {
-    formatterMode = "typstyle",
-    exportPdf = "onSave",
-    semanticTokens = "disable"
-  },
+require("lspconfig").tinymist.setup({ offset_encoding = "utf-8", single_file_support = true, settings = { formatterMode = "typstyle", exportPdf = "onSave", semanticTokens = "disable" },
   flags = {
-    allow_incremental_sync = false,
-    debounce_text_changes = 250       -- In ms
-  }
+    -- allow_incremental_sync = false,
+    debounce_text_changes = 250 -- In ms
+  },
+  on_attach = function(client, bufnr)
+    vim.keymap.set("n", "<leader>tp", function()
+      client:exec_cmd({
+        title = "pin",
+        command = "tinymist.pinMain",
+        arguments = { vim.api.nvim_buf_get_name(0) },
+      }, { bufnr = bufnr })
+    end, { desc = "[T]inymist [P]in", noremap = true })
+
+    vim.keymap.set("n", "<leader>tu", function()
+      client:exec_cmd({
+        title = "unpin",
+        command = "tinymist.pinMain",
+        arguments = { vim.v.null },
+      }, { bufnr = bufnr })
+    end, { desc = "[T]inymist [U]npin", noremap = true })
+  end,
 })
 -- vim: ts=2 sts=2 sw=2 et

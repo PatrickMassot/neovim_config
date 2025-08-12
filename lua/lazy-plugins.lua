@@ -486,7 +486,7 @@ require('lazy').setup({
         documentation = { auto_show = false, auto_show_delay_ms = 500 },
         -- Do not show auto-completion automatically, need a keypress
         menu = {
-          show_on_keyword = false,
+          -- show_on_keyword = false,
           auto_show = false,
         },
       },
