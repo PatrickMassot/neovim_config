@@ -108,7 +108,7 @@ require('lazy').setup({
   'monaqa/dial.nvim',
 
   -- Toggle comments
-  { 'tomtom/tcomment_vim', lazy = false },
+  { 'tomtom/tcomment_vim',   lazy = false },
 
   { -- Sane notifications (includes filtering lean.nvim debug messages)
     'rcarriga/nvim-notify',
@@ -144,7 +144,7 @@ require('lazy').setup({
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',    opts = {} },
 
       -- Allows extra capabilities provided by blink.cmp
       'saghen/blink.cmp',
@@ -707,20 +707,34 @@ require('lazy').setup({
     },
   },
   {
-    "ggandor/leap.nvim",
-    config = function(_, opts)
-      local leap = require("leap")
-      for k, v in pairs(opts) do
-        leap.opts[k] = v
-      end
-      leap.add_default_mappings(true)
-      vim.keymap.del({ "x", "o" }, "x")
-      vim.keymap.del({ "x", "o" }, "X")
-      vim.keymap.set("n", "s", function()
-        require("leap").leap({ target_windows = { vim.api.nvim_get_current_win() } })
-      end)
-    end,
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    ---@type Flash.Config
+    opts = {},
+    -- stylua: ignore
+    keys = {
+      { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+      { "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+      { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+      { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+    },
   },
+  -- {
+  --   "ggandor/leap.nvim",
+  --   config = function(_, opts)
+  --     local leap = require("leap")
+  --     for k, v in pairs(opts) do
+  --       leap.opts[k] = v
+  --     end
+  --     leap.add_default_mappings(true)
+  --     vim.keymap.del({ "x", "o" }, "x")
+  --     vim.keymap.del({ "x", "o" }, "X")
+  --     vim.keymap.set("n", "s", function()
+  --       require("leap").leap({ target_windows = { vim.api.nvim_get_current_win() } })
+  --     end)
+  --   end,
+  -- },
   -- "gc" to comment visual regions/lines
   -- { 'numToStr/Comment.nvim', opts = {} },
 
@@ -977,9 +991,9 @@ require('lazy').setup({
   -- { 'subnut/nvim-ghost.nvim' },
   {
     'chomosuke/typst-preview.nvim',
-    lazy = false, -- or ft = 'typst'
+    lazy = false,                                                              -- or ft = 'typst'
     version = '1.*',
-    opts = {open_cmd = 'firefox %s -P typst-preview --class typst-preview'},  -- lazy.nvim will implicitly calls `setup {}`
+    opts = { open_cmd = 'firefox %s -P typst-preview --class typst-preview' }, -- lazy.nvim will implicitly calls `setup {}`
   },
   {
     "eero-lehtinen/oklch-color-picker.nvim",
