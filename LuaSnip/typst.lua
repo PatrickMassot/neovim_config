@@ -135,4 +135,13 @@ return {
       }
     )
   ),
+  s({trig = "grid", dscr = "Create a grid layout."},
+    fmt([[
+#grid(columns: ({cols}))[{content}]
+{exit}]],
+      {
+	cols=i(1, "auto, auto"), content=i(2), exit=i(0)
+      }
+    )
+  ),
 }
