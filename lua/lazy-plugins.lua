@@ -1,82 +1,14 @@
 -- [[ Configure plugins ]]
--- NOTE: Here is where you install your plugins.
---  You can configure plugins using the `config` key.
---
---  You can also configure plugins after the setup call,
---    as they will be available in your neovim runtime.
-
--- vim.api.nvim_create_autocmd("LspAttach", {
---   callback = function(args)
---     local bufnr = args.buf
---     local client = vim.lsp.get_client_by_id(args.data.client_id)
---
---     -- NOTE: Remember that lua is a real programming language, and as such it is possible
---     -- to define small helper and utility functions so you don't have to repeat yourself
---     -- many times.
---     --
---     -- In this case, we create a function that lets us more easily define mappings specific
---     -- for LSP related items. It sets the mode, buffer and description for us each time.
---     local nmap = function(keys, func, desc)
---       if desc then
---         desc = 'LSP: ' .. desc
---       end
---
---       vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
---     end
---
---     nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
---     -- nmap('<leader>ca', function()
---     --   vim.lsp.buf.code_action { context = { only = { 'quickfix', 'refactor', 'source' } } }
---     -- end, '[C]ode [A]ction')
---
---     nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
---     nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
---     nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
---     nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
---     nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
---     nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
---
---     -- See `:help K` for why this keymap
---     nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
---     -- nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
---
---     -- Lesser used LSP functionality
---     nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
---     nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
---     nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
---     nmap('<leader>wl', function()
---       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
---     end, '[W]orkspace [L]ist Folders')
---
---     if client:supports_method('textDocument/documentHighlight') then
---       vim.api.nvim_create_autocmd('CursorHold', {
---         callback = vim.lsp.buf.document_highlight,
---         buffer = bufnr,
---         desc = 'Show document highlight on cursor hold.',
---       })
---       vim.api.nvim_create_autocmd('CursorMoved', {
---         callback = vim.lsp.buf.clear_references,
---         buffer = bufnr,
---         desc = 'Clear highlights when the cursor moves.',
---       })
---     end
---
---     -- Create a command `:Format` local to the LSP buffer
---     vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
---       vim.lsp.buf.format()
---     end, { desc = 'Format current buffer with LSP' })
---   end
--- })
 
 require('lazy').setup({
-    performance = {
-        rtp = {
-            disabled_plugins = {
-                -- disable built-in matchparen plugin
-                "matchparen",
-            },
-        },
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        -- disable built-in matchparen plugin
+        "matchparen",
+      },
     },
+  },
   -- NOTE: First, some plugins that don't require any configuration
 
   -- 'andymass/vim-matchup',
@@ -112,6 +44,7 @@ require('lazy').setup({
   -- },
   -- { "honza/vim-snippets" },
   -- "fhill2/telescope-ultisnips.nvim",
+
   -- Generalizes C-a/C-x
   'monaqa/dial.nvim',
 
@@ -336,18 +269,6 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
-        -- gopls = {},
-        -- pyright = {},
-        -- rust_analyzer = {},
-        -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-        --
-        -- Some languages (like typescript) have entire language plugins that can be useful:
-        --    https://github.com/pmizio/typescript-tools.nvim
-        --
-        -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
-        --
         tinymist = {
           single_file_support = true,
           offset_encoding = "utf-8",
@@ -355,7 +276,29 @@ require('lazy').setup({
             formatterMode = "typstyle",
             exportPdf = "never",
             semanticTokens = "disable"
-          }
+          },
+          flags = {
+            -- allow_incremental_sync = false,
+            debounce_text_changes = 250 -- In ms
+          },
+          -- on_attach = function(client, bufnr)
+          --   require("lspconfig")["tinymist"].default_config.on_attach(client, bufnr)
+          --   vim.keymap.set("n", "<leader>tp", function()
+          --     client:exec_cmd({
+          --       title = "pin",
+          --       command = "tinymist.pinMain",
+          --       arguments = { vim.api.nvim_buf_get_name(0) },
+          --     }, { bufnr = bufnr })
+          --   end, { desc = "[T]inymist [P]in", noremap = true })
+          --
+          --   vim.keymap.set("n", "<leader>tu", function()
+          --     client:exec_cmd({
+          --       title = "unpin",
+          --       command = "tinymist.pinMain",
+          --       arguments = { vim.v.null },
+          --     }, { bufnr = bufnr })
+          --   end, { desc = "[T]inymist [U]npin", noremap = true })
+          -- end,
         },
 
         lua_ls = {
@@ -395,7 +338,7 @@ require('lazy').setup({
 
       require('mason-lspconfig').setup {
         ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-        automatic_installation = false,
+        automatic_enable = true,
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
@@ -409,21 +352,6 @@ require('lazy').setup({
       }
     end,
   },
-  -- -- NOTE: This is where your plugins related to LSP can be installed.
-  -- --  The configuration is done below. Search for lspconfig to find it below.
-  -- {
-  --   -- LSP Configuration & Plugins
-  --   'neovim/nvim-lspconfig',
-  --   dependencies = {
-  --     -- Automatically install LSPs to stdpath for neovim
-  --     { 'williamboman/mason.nvim', config = true },
-  --     'williamboman/mason-lspconfig.nvim',
-  --
-  --     -- Useful status updates for LSP
-  --     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-  --     { 'j-hui/fidget.nvim',       opts = {} },
-  --   },
-  -- },
   { -- Autocompletion
     'saghen/blink.cmp',
     event = 'VimEnter',
@@ -542,37 +470,9 @@ require('lazy').setup({
       }
 
       vim.wo.foldlevel = 99
-      vim.wo.conceallevel = 2
+      -- vim.wo.conceallevel = 2
     end,
   },
-  -- {
-  --   -- Autocompletion
-  --   'hrsh7th/nvim-cmp',
-  --   dependencies = {
-  --     -- Snippet Engine & its associated nvim-cmp source
-  --     -- {
-  --     --   'L3MON4D3/LuaSnip',
-  --     --   build = (function()
-  --     --     return 'make install_jsregexp'
-  --     --   end)(),
-  --     -- },
-  --     -- 'saadparwaiz1/cmp_luasnip',
-  --
-  --     {
-  --       'quangnguyen30192/cmp-nvim-ultisnips',
-  --       config = function()
-  --         require("cmp_nvim_ultisnips").setup({})
-  --       end
-  --     },
-  --
-  --     -- Adds LSP completion capabilities
-  --     'hrsh7th/cmp-nvim-lsp',
-  --     'hrsh7th/cmp-path',
-  --
-  --     -- Adds a number of user-friendly snippets
-  --     -- 'rafamadriz/friendly-snippets',
-  --   },
-  -- },
 
   -- Useful plugin to show you pending keybinds.
   require 'which-key-setup',
@@ -687,20 +587,6 @@ require('lazy').setup({
   },
   { 'Mofiqul/vscode.nvim' },
   { 'EdenEast/nightfox.nvim' },
-  --  {
-  --    -- Theme inspired by Atom
-  --    'navarasu/onedark.nvim',
-  --    priority = 1000,
-  --    lazy = false,
-  --    config = function()
-  --      require('onedark').setup {
-  --        -- Set a style preset. 'dark' is default.
-  --        style = 'dark', -- dark, darker, cool, deep, warm, warmer, light
-  --      }
-  --      require('onedark').load()
-  --    end,
-  --  },
-
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -728,23 +614,6 @@ require('lazy').setup({
       { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
     },
   },
-  -- {
-  --   "ggandor/leap.nvim",
-  --   config = function(_, opts)
-  --     local leap = require("leap")
-  --     for k, v in pairs(opts) do
-  --       leap.opts[k] = v
-  --     end
-  --     leap.add_default_mappings(true)
-  --     vim.keymap.del({ "x", "o" }, "x")
-  --     vim.keymap.del({ "x", "o" }, "X")
-  --     vim.keymap.set("n", "s", function()
-  --       require("leap").leap({ target_windows = { vim.api.nvim_get_current_win() } })
-  --     end)
-  --   end,
-  -- },
-  -- "gc" to comment visual regions/lines
-  -- { 'numToStr/Comment.nvim', opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
@@ -936,13 +805,6 @@ require('lazy').setup({
       "nvim-tree/nvim-web-devicons"
     },
   },
-  -- {
-  --   'MeanderingProgrammer/render-markdown.nvim',
-  --   dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
-  --   ---@module 'render-markdown'
-  --   ---@type render.md.UserConfig
-  --   opts = {},
-  -- },
   {
     url = "https://codeberg.org/JoshuaCrewe/telescope-notmuch.nvim.git",
     config = function()
@@ -954,48 +816,6 @@ require('lazy').setup({
     end,
     ft = { 'mail' }
   },
-  -- {
-  --   "robitx/gp.nvim",
-  --   config = function()
-  --     local conf = {
-  --       whisper = {
-  --         rec_cmd = "sox",
-  --         endpoint = "http://127.0.0.1:7447/inference",
-  --       },
-  --       curl_params = { "--proxy", "http://127.0.0.1:8080" },
-  --       openai_api_key = {
-  --         "cat",
-  --         "/home/pmassot/.config/nvim/openai.token",
-  --       },
-  --       hooks = {
-  --         -- GpInspectPlugin provides a detailed inspection of the plugin state
-  --         InspectPlugin = function(plugin, params)
-  --           local bufnr = vim.api.nvim_create_buf(false, true)
-  --           local copy = vim.deepcopy(plugin)
-  --           local key = copy.config.openai_api_key or ""
-  --           copy.config.openai_api_key = key:sub(1, 3) .. string.rep("*", #key - 6) .. key:sub(-3)
-  --           local plugin_info = string.format("Plugin structure:\n%s", vim.inspect(copy))
-  --           local params_info = string.format("Command params:\n%s", vim.inspect(params))
-  --           local lines = vim.split(plugin_info .. "\n" .. params_info, "\n")
-  --           vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
-  --           vim.api.nvim_win_set_buf(0, bufnr)
-  --         end,
-  --
-  --         -- GpInspectLog for checking the log file
-  --         InspectLog = function(plugin, params)
-  --           local log_file = plugin.config.log_file
-  --           local buffer = plugin.helpers.get_buffer(log_file)
-  --           if not buffer then
-  --             vim.cmd("e " .. log_file)
-  --           else
-  --             vim.cmd("buffer " .. buffer)
-  --           end
-  --         end,
-  --         }
-  --       };
-  --     require("gp").setup(conf)
-  --   end,
-  -- },
   -- { 'subnut/nvim-ghost.nvim' },
   {
     'chomosuke/typst-preview.nvim',
