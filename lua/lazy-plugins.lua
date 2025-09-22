@@ -279,7 +279,7 @@ require('lazy').setup({
           },
           flags = {
             -- allow_incremental_sync = false,
-            debounce_text_changes = 250 -- In ms
+            -- debounce_text_changes = 250 -- In ms
           },
           -- on_attach = function(client, bufnr)
           --   require("lspconfig")["tinymist"].default_config.on_attach(client, bufnr)
