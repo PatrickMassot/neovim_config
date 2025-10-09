@@ -121,6 +121,61 @@ return {
      d4 = c(18, dash()),
      d5 = c(19, dash()),
      exit = i(0)})),
+  s("diag_transfo_nat", fmt(
+  [[#align(center, diagram($
+    {F}({X}) edge({a}_{X}, "->") edge("d", {F}(f), "->") & {G}({X}) edge("d", {G}(f), "->", label-side: #left)\
+    {F}({Y}) edge({a}_{Y}, "->") & {G}({Y})
+    $))
+    {exit}]],
+    {F = i(1, 'F'),
+     G = i(2, 'G'),
+     a = i(3, 'α'),
+     X = i(4, 'X'),
+     Y = i(5, 'Y'),
+     exit = i(0)
+    },
+    {
+      repeat_duplicates = true
+    })
+  ),
+  s("diag_adjonction_compat_gauche", fmt(
+    [[#align(center, diagram($
+      Hom({L} {X}, {Y}) edge(φ_({X}, {Y}), "->") edge("d", – ∘ {L} {f}, "<-") & Hom({X}, {R} {Y}) edge("d", – ∘ {f}, "<-", label-side: #left)\
+      Hom({L} {Xp}, {Y}) edge(φ_({Xp}, {Y}), "->") & Hom({Xp}, {R} {Y})
+      $))
+      {exit}
+    ]],
+    {L = i(1, 'L'),
+     R = i(2, 'R'),
+     X = i(3, 'X'),
+     Xp = i(4, "X'"),
+     Y = i(5, 'Y'),
+     f = i(6, 'f'),
+     exit = i(0)
+    },
+    {
+      repeat_duplicates = true
+    })
+  ),
+  s("diag_adjonction_compat_droite", fmt(
+    [[#align(center, diagram($
+      Hom({L} {X}, {Y}) edge(φ_({X}, {Y}), "->") edge("d", {g} ∘ –, "->") & Hom({X}, {R} {Y}) edge("d", {R} {g} ∘ –, "->", label-side: #left)\
+      Hom({L} {X}, {Yp}) edge(φ_({X}, {Yp}), "->") & Hom({X}, {R} {Yp})
+      $))
+      {exit}
+    ]],
+    {L = i(1, 'L'),
+     R = i(2, 'R'),
+     X = i(3, 'X'),
+     Y = i(4, "Y"),
+     Yp = i(5, "Y'"),
+     g = i(6, 'g'),
+     exit = i(0)
+    },
+    {
+      repeat_duplicates = true
+    })
+  ),
   s("thm", fmt([[
 #{}[
   {}
