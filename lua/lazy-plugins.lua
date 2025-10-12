@@ -847,7 +847,8 @@ require('lazy').setup({
     },
     ---@type oklch.Opts
     opts = {},
-  }
-}, {})
+  },
+      "godlygeek/tabular"
+  }, {})
 
 -- vim: ts=2 sts=2 sw=2 et

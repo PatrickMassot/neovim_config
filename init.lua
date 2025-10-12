@@ -46,6 +46,9 @@ vim.g.maplocalleader = ' '
 
 vim.g.have_nerd_font = true
 
+-- vim.lsp.set_log_level(vim.log.levels.DEBUG)
+-- vim.lsp.log.set_format_func(vim.inspect)
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 require 'lazy-bootstrap'
 
