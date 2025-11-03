@@ -829,9 +829,14 @@ require('lazy').setup({
   -- { 'subnut/nvim-ghost.nvim' },
   {
     'chomosuke/typst-preview.nvim',
-    lazy = false,                                                              -- or ft = 'typst'
+    lazy = false, -- or ft = 'typst'
     version = '1.*',
-    opts = { open_cmd = 'firefox %s -P typst-preview --class typst-preview' }, -- lazy.nvim will implicitly calls `setup {}`
+    opts = {
+      open_cmd = 'firefox %s -P typst-preview --class typst-preview',
+      dependencies_bin = {
+        tinymist = "tinymist",
+      }
+    },
   },
   {
     "eero-lehtinen/oklch-color-picker.nvim",
@@ -848,7 +853,7 @@ require('lazy').setup({
     ---@type oklch.Opts
     opts = {},
   },
-      "godlygeek/tabular"
-  }, {})
+  "godlygeek/tabular"
+}, {})
 
 -- vim: ts=2 sts=2 sw=2 et
