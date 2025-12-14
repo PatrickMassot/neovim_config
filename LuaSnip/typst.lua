@@ -190,7 +190,7 @@ return {
     })),
   s("diag_mayer_vietoris", fmt(
   [[#align(center, diagram($
-    H_{p} ({A} ∩ {B}) edge("->") & H_{p} ({A}) ⊕ H_{p} ({B}) edge("->") & H_{p} ({X}) edge("->") & H_{pm} ({A} ∩ {B}) edge("->") & H_{pm} ({A}) ⊕ H_({pm}) ({B})
+    H_{p} ({A} ∩ {B}) edge("->") & H_{p} ({A}) ⊕ H_{p} ({B}) edge("->") & H_{p} ({X}) edge("->") & H_{pm} ({A} ∩ {B}) edge("->") & H_{pm} ({A}) ⊕ H_{pm} ({B})
     $))
     {exit}]],
     {A = i(1, 'A'),
