@@ -4,7 +4,7 @@ local sn = ls.snippet_node
 local t = ls.text_node
 local c = ls.choice_node
 local i = ls.insert_node
--- local f = ls.function_node
+local f = ls.function_node
 local d = ls.dynamic_node
 local fmt = require("luasnip.extras.fmt").fmt
 -- local fmta = require("luasnip.extras.fmt").fmta
@@ -18,7 +18,7 @@ local function dash()
   return {t'', t', "dashed"'}
 end
 
-local get_visual = function(args, parent)
+local get_visual = function(_, parent)
   if (#parent.snippet.env.LS_SELECT_RAW > 0) then
     return sn(nil, i(1, parent.snippet.env.LS_SELECT_RAW))
   else  -- If LS_SELECT_RAW is empty, return a blank insert node
@@ -170,6 +170,42 @@ return {
      Y = i(4, "Y"),
      Yp = i(5, "Y'"),
      g = i(6, 'g'),
+     exit = i(0)
+    },
+    {
+      repeat_duplicates = true
+    })
+  ),
+  s("sec", fmt( -- suite exacte courte
+  [[#align(center, diagram($
+    0 edge("->") & {A} edge("{i}", "->") & {B} edge("{p}", "->") & {C} edge("->") & 0
+    $))
+    {exit}]],
+    {A = i(1, 'A'),
+     B = i(2, 'B'),
+     C = i(3, 'C'),
+     i = i(4, 'ι'),
+     p = i(5, 'π'),
+     exit = i(0)
+    })),
+  s("diag_mayer_vietoris", fmt(
+  [[#align(center, diagram($
+    H_{p} ({A} ∩ {B}) edge("->") & H_{p} ({A}) ⊕ H_{p} ({B}) edge("->") & H_{p} ({X}) edge("->") & H_{pm} ({A} ∩ {B}) edge("->") & H_{pm} ({A}) ⊕ H_({pm}) ({B})
+    $))
+    {exit}]],
+    {A = i(1, 'A'),
+     B = i(2, 'B'),
+     X = i(3, 'X'),
+     p = i(4, 'p'),
+     pm = f(function(args, _, _)
+	-- Compute p-1 if p is a literal number, otherwise return "(p - 1)"
+	local pm = tonumber(args[1][1])
+	if pm ~= nil then
+	  return tostring(pm-1)
+	else
+	  return "(" .. args[1][1] .. " - 1)"
+	end
+      end, {4}, {}),
      exit = i(0)
     },
     {
