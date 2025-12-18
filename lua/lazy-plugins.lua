@@ -440,6 +440,22 @@ require('lazy').setup({
       sources = {
         default = { 'lsp', 'path', 'snippets', 'lazydev', 'buffer' },
         providers = {
+          snippets = {
+            min_keyword_length = 2,
+            score_offset = 6,
+          },
+          lsp = {
+            min_keyword_length = 3,
+            score_offset = 3,
+          },
+          buffer = {
+            min_keyword_length = 3,
+            score_offset = 2,
+          },
+          path = {
+            min_keyword_length = 3,
+            score_offset = 1,
+          },
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
         },
       },
@@ -492,13 +508,13 @@ require('lazy').setup({
     opts = {
       -- See `:help gitsigns.txt`
       signs = {
-        add = { text = '+' },
-        change = { text = '~' },
+        add = { text = '' },
+        change = { text = '' },
         delete = { text = '' },
         topdelete = { text = '' },
         -- delete = { text = '_' },
         -- topdelete = { text = '‾' },
-        changedelete = { text = '~' },
+        changedelete = { text = '' },
       },
       signcolumn = true,
       on_attach = function(bufnr)
