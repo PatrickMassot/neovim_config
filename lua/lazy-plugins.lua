@@ -274,6 +274,8 @@ require('lazy').setup({
           offset_encoding = "utf-8",
           settings = {
             formatterMode = "typstyle",
+            formatterProseWrap = true,
+            formatterPrintWidth = 80,
             exportPdf = "never",
             semanticTokens = "disable"
           },
