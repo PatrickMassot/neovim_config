@@ -1,1 +1,1 @@
-vim.keymap.set('v', 'c', vim.cmd.TCommentBlock)
+vim.keymap.set('v', 'gc', vim.cmd.TCommentBlock)
