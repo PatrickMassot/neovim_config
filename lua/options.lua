@@ -115,12 +115,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 if vim.fn.executable('rg') then
   vim.o.grepprg = 'rg --hidden --vimgrep --no-heading --smart-case $*'
   vim.o.grepformat = '%f:%l:%c:%m,%f:%l:%m'
-elseif vim.fn.filereadable('/usr/local/bin/grep') then  -- newer grep
+elseif vim.fn.filereadable('/usr/local/bin/grep') then -- newer grep
   vim.o.grepprg = '/usr/local/bin/grep'
 end
 
 -- Affichage diagnostiques en ligne
-vim.diagnostic.config({virtual_text=true})
+vim.diagnostic.config({ virtual_text = true })
 
 -- Raccourci pour utiliser les diagnostiques en lignes virtuelles
 -- https://www.reddit.com/r/neovim/comments/1jo9oe9/i_set_up_my_config_to_use_virtual_lines_for/
@@ -153,5 +153,10 @@ end, { desc = "Toggle diagnostic virtual_lines" })
 
 -- Bordure popups (par exemple S-k)
 vim.o.winborder = 'rounded'
+
+vim.g.mailheaders_settings = {
+  addresses = "$HOME/.config/mutt/addresses",
+  set_mappings = true
+}
 
 -- vim: ts=2 sts=2 sw=2 et

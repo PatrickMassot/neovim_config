@@ -9,7 +9,22 @@ require('lazy').setup({
       },
     },
   },
-  -- NOTE: First, some plugins that don't require any configuration
+  -- dev = {
+  --   -- Directory where you store your local plugin projects. If a function is used,
+  --   -- the plugin directory (e.g. `~/projects/plugin-name`) must be returned.
+  --   ---@type string | fun(plugin: LazyPlugin): string
+  --   path = "~/soft",
+  --   ---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
+  --   patterns = {}, -- For example {"folke"}
+  --   fallback = false, -- Fallback to git when local plugin doesn't exist
+  -- },
+  {
+    url = "https://codeberg.org/pmassot/mail-headers.nvim.git",
+    dependencies = {
+      { "nvim-treesitter/nvim-treesitter", branch = "master" },
+      "nvim-telescope/telescope.nvim"
+    }
+  },
 
   -- 'andymass/vim-matchup',
   -- Git related plugins
@@ -849,7 +864,39 @@ require('lazy').setup({
     ---@type oklch.Opts
     opts = {},
   },
-  "godlygeek/tabular"
+  "godlygeek/tabular",
+  -- For popups in mail-headers.nvim demo
+  "MunifTanjim/nui.nvim",
+  {
+    "NStefan002/screenkey.nvim",
+    lazy = false,
+    version = "*",
+    opts = {
+      keys = {
+        ["<TAB>"] = "<Tab>",
+        ["<CR>"] = "<CR>",
+        ["<UP>"] = "<Up>",
+        ["<DOWN>"] = "<Down>",
+        ["<LEFT>"] = "<Left>",
+        ["<RIGHT>"] = "<Right>",
+        ["<BS>"] = "<BS>",
+      },
+      win_opts = {
+        row = vim.o.lines - vim.o.cmdheight - 1,
+        col = vim.o.columns - 1,
+        relative = "editor",
+        anchor = "SE",
+        width = 40,
+        height = 1,
+        border = "single",
+        title = "Key pressed",
+        title_pos = "center",
+        style = "minimal",
+        focusable = false,
+        noautocmd = true,
+      },
+    }
+  }
 }, {})
 
 -- vim: ts=2 sts=2 sw=2 et
