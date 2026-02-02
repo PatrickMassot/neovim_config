@@ -305,6 +305,9 @@ require('lazy').setup({
               completion = {
                 callSnippet = 'Replace',
               },
+              workspace = {
+                library = { '${env:HOME}/soft/lua_neomutt' }
+              },
               -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
               -- diagnostics = { disable = { 'missing-fields' } },
             },
@@ -896,6 +899,10 @@ require('lazy').setup({
         noautocmd = true,
       },
     }
+  },
+  {
+    "MarcusGrass/nvim_winpick",
+    opts = { hint = "floating-letter", }
   }
 }, {})
 
