@@ -15,4 +15,5 @@ local t = ls.text_node
 return {
   s("ami", t{"Amicalement,", "", "Patrick"}),
   s("cor", t{"Cordialement,", "", "Patrick Massot"}),
+  s("reg", t{"Regards,", "", "Patrick Massot"}),
 }
