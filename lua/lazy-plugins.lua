@@ -64,7 +64,8 @@ require('lazy').setup({
   'monaqa/dial.nvim',
 
   -- Toggle comments
-  { 'tomtom/tcomment_vim',   lazy = false },
+  -- { 'tomtom/tcomment_vim',   lazy = false },
+  { 'numToStr/Comment.nvim', opts = {} },
 
   { -- Sane notifications (includes filtering lean.nvim debug messages)
     'rcarriga/nvim-notify',

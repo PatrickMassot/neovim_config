@@ -81,10 +81,6 @@ require 'treesitter-setup'
 -- (Generalized C-a and C-x)
 require 'dial-setup'
 
--- [[ Configure tcomment ]]
--- (Toggle comments)
-require 'tcomment-setup'
-
 require 'luasnip-setup'
 
 require 'user-commands'
