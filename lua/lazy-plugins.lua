@@ -710,7 +710,25 @@ require('lazy').setup({
         -- (comma is a popular choice on French keyboards)
         leader = ',',
       },
-      goal_markers = { accomplished = '✓' },
+      goal_markers = { accomplished = '✓', unsolved = '',},
+      stderr = {
+        on_lines = function(lines)
+          local opts = {
+            timeout = 3000,
+            render = 'wrapped-compact',
+          }
+
+          local _, _, maybe_level, rest = lines:find('^(%w+): (.*)')
+          -- Lean uses warning rather than warn...
+          -- and some message don't have any level...
+          -- surely there's another way we should do this.
+          local level = vim.log.levels[(maybe_level or ''):upper()]
+          if not level then
+            rest = lines
+          end
+          -- vim.notify(rest, level, opts)
+        end,
+      }
     }
   },
   {
