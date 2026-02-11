@@ -18,6 +18,18 @@ end
 
 
 return {
+  s("exe", fmt([[
+Exemple "{a}"
+  Données : {b}
+  Hypothèses : {c}
+  Conclusion : {d}
+Démonstration :
+  sorry
+QED
+{}]],
+    {a=i(1), b=i(2), c=i(3), d=i(4), i(0)}
+    )
+  ),
   s("exo", fmt([[
 Exercice "{a}"
   Données : {b}
