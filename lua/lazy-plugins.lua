@@ -710,7 +710,7 @@ require('lazy').setup({
         -- (comma is a popular choice on French keyboards)
         leader = ',',
       },
-      goal_markers = { accomplished = '✓', unsolved = '',},
+      goal_markers = { accomplished = '✓', unsolved = '', },
       stderr = {
         on_lines = function(lines)
           local opts = {
@@ -922,7 +922,7 @@ require('lazy').setup({
   {
     "MarcusGrass/nvim_winpick",
     opts = { hint = "floating-letter", }
-  }
+  },
 }, {})
 
 -- vim: ts=2 sts=2 sw=2 et
