@@ -139,6 +139,26 @@ require('lazy').setup({
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
         callback = function(event)
+          -- Tinymist config
+          local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
+          if client.server_info.name == 'tinymist' then
+            vim.keymap.set("n", "<leader>tp", function()
+              client:exec_cmd({
+                title = "pin",
+                command = "tinymist.pinMain",
+                arguments = { vim.api.nvim_buf_get_name(0) },
+              }, { bufnr = event.buf })
+            end, { desc = "[T]inymist [P]in", noremap = true })
+
+            vim.keymap.set("n", "<leader>tu", function()
+              client:exec_cmd({
+                title = "unpin",
+                command = "tinymist.pinMain",
+                arguments = { vim.v.null },
+              }, { bufnr = event.buf })
+            end, { desc = "[T]inymist [U]npin", noremap = true })
+          end
+
           -- NOTE: Remember that Lua is a real programming language, and as such it is possible
           -- to define small helper and utility functions so you don't have to repeat yourself.
           --
