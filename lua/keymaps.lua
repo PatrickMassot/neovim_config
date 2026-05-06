@@ -38,7 +38,7 @@ vim.api.nvim_set_keymap('i', '<C-BS>', '<C-W>', {noremap = true})
 
 vim.api.nvim_set_keymap('n', '<C-q>', ':q<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', {noremap = true})
-vim.keymap.set({'n'}, '<C-m>', require("nvim_winpick").pick_focus_window, {noremap = true})
+-- vim.keymap.set({'n'}, '<C-m>', require("nvim_winpick").pick_focus_window, {noremap = true})
 
 -- Lean keymaps
 vim.keymap.set({"n", "i"}, "<C-S-X>", function()
