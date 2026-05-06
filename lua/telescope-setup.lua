@@ -72,7 +72,7 @@ vim.keymap.set('n', '<leader>/', function()
 end, { desc = '[/] Fuzzily search in current buffer' })
 
 local function telescope_live_grep_open_files()
-  require('telescope.builtin').live_grep {
+ require('telescope.builtin').live_grep {
     grep_open_files = true,
     prompt_title = 'Live Grep in Open Files',
   }
@@ -93,6 +93,6 @@ vim.keymap.set('n', '<leader>fr', require('telescope.builtin').lsp_references, {
 vim.keymap.set('n', '<leader>fa', require('telescope.builtin').lsp_dynamic_workspace_symbols, { desc = '[F]ind [A]ll symbols in workspace' })
 -- vim.keymap.set('n', '<leader>fu', require('telescope').extensions.ultisnips.ultisnips, { desc = '[F]ind [U]ltisnips snippets' })
 vim.keymap.set('n', '<leader>fl', require('telescope').extensions.luasnip.luasnip, { desc = '[F]ind [L]uaSnip snippets' })
-vim.keymap.set("n", "<leader>fc", require("telescope").extensions.zoxide.list)
+vim.keymap.set("n", "<leader>fc", require("telescope").extensions.zoxide.list, { desc = '[F]ind and [Change] directory' })
 
 -- vim: ts=2 sts=2 sw=2 et
