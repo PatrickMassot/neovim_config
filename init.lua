@@ -8,10 +8,8 @@
 vim.opt.termguicolors = true
 
 vim.opt.number = false                            -- line number
-vim.opt.cursorline = true                         -- highlight current line
-vim.opt.wrap = false                              -- do not wrap lines by default
 vim.opt.scrolloff = 10                            -- keep 10 lines above/below cursor
-vim.opt.sidescrolloff = 10                        -- keep 10 lines to left/right of cursor
+vim.opt.sidescrolloff = 10                        -- keep 10 columns to left/right of cursor
 
 vim.opt.tabstop = 2                               -- tabwidth
 vim.opt.shiftwidth = 2                            -- indent width
