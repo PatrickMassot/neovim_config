@@ -272,6 +272,7 @@ vim.api.nvim_create_autocmd('FileType', {
   group = augroup,
   pattern = { 'markdown', 'text', 'gitcommit', 'org' },
   callback = function()
+    if not vim.bo.buflisted then return end
     vim.opt_local.wrap = true
     vim.opt_local.linebreak = true
     vim.opt_local.spell = true
