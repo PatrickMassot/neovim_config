@@ -532,6 +532,20 @@ vim.diagnostic.config {
   },
 }
 
+local function peek_definition()
+  local params = vim.lsp.util.make_position_params()
+  return vim.lsp.buf_request(0, 'textDocument/definition', params, function(_, result, _)
+    if result == nil or vim.tbl_isempty(result) then
+      vim.notify 'No definition found.'
+      return nil
+    end
+    if vim.islist(result) then
+      result = result[1]
+    end
+    vim.lsp.util.preview_location(result, { border = 'single' })
+  end)
+end
+
 local function lsp_on_attach(ev)
   local client = vim.lsp.get_client_by_id(ev.data.client_id)
   if not client then
@@ -574,6 +588,9 @@ local function lsp_on_attach(ev)
   --  Useful when you're not sure what type a variable is and you want to see
   --  the definition of its *type*, not where it was *defined*.
   map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
+
+  -- Peek at definition instead of jumping
+  map('gk', peek_definition, '[G]oto pee[k]ed Definition')
 
   if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, ev.buf) then
     local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
