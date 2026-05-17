@@ -354,6 +354,7 @@ vim.pack.add {
   gh 'folke/flash.nvim',
   gh 'MagicDuck/grug-far.nvim',
   gh 'monaqa/dial.nvim',
+  gh 'nvim-mini/mini.surround',
 
   -- Language Server Protocols, code action and snippets
   gh 'neovim/nvim-lspconfig',
@@ -951,6 +952,20 @@ require('which-key').setup {
     { '<leader>ol', group = '[Org] [L]ink' },
     { '<leader>oi', group = '[Org] [I]nsert' },
     { '<leader>ox', group = '[Org] Clock' },
+  },
+}
+
+require('mini.surround').setup {
+  mappings = {
+    add = '',        -- Add surrounding in Normal and Visual modes
+    delete = 'ds',     -- Delete surrounding
+    find = 'fs',       -- Find surrounding (to the right)
+    find_left = '',  -- Find surrounding (to the left)
+    highlight = 'hs',  -- Highlight surrounding
+    replace = 'cs',    -- Replace surrounding
+
+    suffix_last = 'l', -- Suffix to search with "prev" method
+    suffix_next = 'n', -- Suffix to search with "next" method
   },
 }
 
