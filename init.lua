@@ -1043,7 +1043,7 @@ require('orgmode').setup {
 }
 
 require('org-roam').setup {
-  directory = '~/Nextcloud/org_roam_files',
+  directory = '~/Nextcloud/orgfiles/roam',
 }
 
 require('telescope').load_extension 'orgmode'
