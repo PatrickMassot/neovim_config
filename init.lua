@@ -331,7 +331,10 @@ vim.pack.add {
   gh 'benfowler/telescope-luasnip.nvim',
   gh 'nvim-telescope/telescope-ui-select.nvim',
   gh 'jvgrootveld/telescope-zoxide',
-  gh 'ibhagwan/fzf-lua',
+  {
+    src = gh 'nvim-telescope/telescope-fzf-native.nvim',
+    build = ':lua vim.system(cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release --target install)',
+  },
 
   gh 'rcarriga/nvim-notify',
   gh 'folke/trouble.nvim',
@@ -803,7 +806,7 @@ require('telescope').setup {
 }
 
 -- Enable telescope fzf native, if installed
-pcall(require('telescope').load_extension, 'fzf')
+require('telescope').load_extension 'fzf'
 
 -- require('telescope').load_extension('ultisnips')
 require('telescope').load_extension 'luasnip'
