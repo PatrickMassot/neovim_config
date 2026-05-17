@@ -272,7 +272,9 @@ vim.api.nvim_create_autocmd('FileType', {
   group = augroup,
   pattern = { 'markdown', 'text', 'gitcommit', 'org' },
   callback = function()
-    if not vim.bo.buflisted then return end
+    if not vim.bo.buflisted then
+      return
+    end
     vim.opt_local.wrap = true
     vim.opt_local.linebreak = true
     vim.opt_local.spell = true
@@ -325,6 +327,7 @@ vim.pack.add {
   gh 'nvim-lualine/lualine.nvim',
   gh 'folke/which-key.nvim',
 
+  -- Telescope
   gh 'nvim-lua/plenary.nvim',
   gh 'nvim-telescope/telescope.nvim',
   gh 'nvim-telescope/telescope-ui-select.nvim',
@@ -336,8 +339,8 @@ vim.pack.add {
     build = ':lua vim.system(cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release --target install)',
   },
 
+  -- Notifications
   gh 'rcarriga/nvim-notify',
-  gh 'folke/trouble.nvim',
   gh 'j-hui/fidget.nvim',
 
   -- Color schemes
@@ -357,6 +360,7 @@ vim.pack.add {
   gh 'mason-org/mason.nvim',
   gh 'mason-org/mason-lspconfig.nvim',
   gh 'WhoIsSethDaniel/mason-tool-installer.nvim',
+  gh 'folke/trouble.nvim',
   gh 'creativenull/efmls-configs-nvim',
   {
     src = gh 'saghen/blink.cmp',
@@ -383,13 +387,12 @@ vim.pack.add {
     build = ':TypstPreviewUpdate',
   },
   gh 'Julian/lean.nvim',
+  'https://codeberg.org/pmassot/mail-headers.nvim.git',
 
   -- Orgmode and friends
   gh 'nvim-orgmode/orgmode',
   gh 'chipsenkbeil/org-roam.nvim',
   gh 'nvim-orgmode/telescope-orgmode.nvim',
-
-  'https://codeberg.org/pmassot/mail-headers.nvim.git',
 }
 
 vim.cmd 'colorscheme catppuccin-macchiato'
