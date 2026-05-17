@@ -78,6 +78,8 @@ vim.opt.maxmempattern = 20000                        -- increase max memory
 vim.o.winborder = 'rounded'                          -- popups borders (eg. S-k)
 vim.opt.title = true                                 -- Use file name as window title
 
+vim.cmd 'set spelllang=en,fr'
+
 vim.cmd 'let g:vimtex_quickfix_open_on_warning = 0'
 
 vim.g.mailheaders_settings = {
