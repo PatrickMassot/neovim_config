@@ -306,6 +306,21 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+vim.api.nvim_create_autocmd('PackChanged', {
+  callback = function(ev)
+    local name, kind = ev.data.spec.name, ev.data.kind
+    if name == 'nvim-treesitter' and kind == 'update' then
+      if not ev.data.active then
+        vim.cmd.packadd 'nvim-treesitter'
+      end
+      vim.cmd 'TSUpdate'
+    end
+    if name == 'telescope-fzf-native.nvim' and (kind == 'install' or kind == 'update') then
+      vim.system({ 'make' }, { cwd = ev.data.path })
+    end
+  end,
+})
+
 -- ============================================================================
 -- PLUGINS (vim.pack)
 -- ============================================================================
@@ -319,12 +334,8 @@ vim.pack.add {
   {
     src = gh 'nvim-treesitter/nvim-treesitter',
     branch = 'main', -- it’s the new one: master does not support 0.12
-    build = ':TSUpdate',
   },
-  {
-    src = gh 'nvim-treesitter/nvim-treesitter-textobjects',
-    branch = 'main', -- it’s the new one: master does not support 0.12
-  },
+  gh 'nvim-treesitter/nvim-treesitter-textobjects',
   gh 'stevearc/aerial.nvim',
   gh 'nvim-lualine/lualine.nvim',
   gh 'folke/which-key.nvim',
@@ -336,10 +347,7 @@ vim.pack.add {
   gh 'benfowler/telescope-luasnip.nvim',
   gh 'nvim-telescope/telescope-ui-select.nvim',
   gh 'jvgrootveld/telescope-zoxide',
-  {
-    src = gh 'nvim-telescope/telescope-fzf-native.nvim',
-    build = ':lua vim.system(cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release --target install)',
-  },
+  gh 'nvim-telescope/telescope-fzf-native.nvim',
 
   -- Notifications
   gh 'rcarriga/nvim-notify',
@@ -959,10 +967,10 @@ require('which-key').setup {
 
 require('mini.surround').setup {
   mappings = {
-    add = '',        -- Add surrounding in Normal and Visual modes
+    add = '',          -- Add surrounding in Normal and Visual modes
     delete = 'ds',     -- Delete surrounding
     find = 'fs',       -- Find surrounding (to the right)
-    find_left = '',  -- Find surrounding (to the left)
+    find_left = '',    -- Find surrounding (to the left)
     highlight = 'hs',  -- Highlight surrounding
     replace = 'cs',    -- Replace surrounding
 
