@@ -372,7 +372,7 @@ vim.pack.add {
   gh 'mason-org/mason-lspconfig.nvim',
   gh 'WhoIsSethDaniel/mason-tool-installer.nvim',
   gh 'folke/trouble.nvim',
-  gh 'creativenull/efmls-configs-nvim',
+  -- gh 'creativenull/efmls-configs-nvim',
   {
     src = gh 'saghen/blink.cmp',
     version = vim.version.range '1.*',
@@ -489,10 +489,6 @@ require('gitsigns').setup {
     map('n', '<leader>hD', function()
       gs.diffthis '~'
     end, { desc = 'git diff against last commit' })
-
-    -- Toggles
-    map('n', '<leader>tb', gs.toggle_current_line_blame, { desc = 'toggle git blame line' })
-    map('n', '<leader>td', gs.toggle_deleted, { desc = 'toggle git show deleted' })
 
     -- Text object
     map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'select git hunk' })
@@ -793,9 +789,8 @@ vim.lsp.config('tinymist', {
 vim.lsp.enable {
   'lua_ls',
   'pyright',
-  'bashls',
   'ts_ls',
-  'efm',
+  -- 'efm',
   'org',
 }
 
@@ -955,7 +950,7 @@ require('which-key').setup {
   -- Document existing key chains
   spec = {
     { '<leader>d',  group = '[D]iff' },
-    { '<leader>t',  group = '[T]oggle' },
+    { '<leader>h',  group = 'Git [H]unk' },
     { '<leader>f',  group = '[F]ind using Telescope' },
     { '<leader>n',  group = '[N]otes' },
     { '<leader>s',  group = '[S]plit' },
