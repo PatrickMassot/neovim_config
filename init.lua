@@ -1030,22 +1030,48 @@ require('actions-preview').setup {
   },
 }
 
+local LinkEMailType = {}
+
+---@return string
+function LinkEMailType:get_name()
+  return 'email'
+end
+
+---@param link string - The current value of the link, for example: "email:google.com"
+---@return boolean - When true, link was handled, when false, continue to the next source
+function LinkEMailType:follow(link)
+  if not vim.startswith(link, 'email:') then
+    return false
+  end
+  -- Get the part after the `email:` part
+  local url = link:sub(7)
+  vim.system { 'kitty', 'neomutt', '-e', '""push l~i' .. url .. '<enter><enter>""' }
+  return true
+end
+
 require('orgmode').setup {
   org_agenda_files = '~/Nextcloud/orgfiles/**/*',
   org_default_notes_file = '~/Nextcloud/orgfiles/refile.org',
   org_capture_templates = {
     t = { description = 'Todo', template = '* TODO %?\n %u' },
     i = { description = 'Idée', template = '* Idée %?\n %u' },
+    m = { description = 'Mail à traiter', template = '* Mail %?\n%u' },
   },
+  org_use_property_inheritance = false,
   mappings = {
     org = {
-      org_refile = false,
+      org_refile = nil,
       org_todo = '<C-d>',
     },
-    capture = { org_capture_refile = false },
+    capture = { org_capture_refile = nil },
     agenda = {
-      org_agenda_refile = false,
+      org_agenda_refile = nil,
       org_agenda_todo = '<C-d>',
+    },
+  },
+  hyperlinks = {
+    sources = {
+      LinkEMailType,
     },
   },
 }
