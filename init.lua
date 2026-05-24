@@ -86,6 +86,10 @@ vim.g.mailheaders_settings = {
   addresses = '$HOME/.config/mutt/addresses',
   set_mappings = true,
 }
+vim.api.nvim_create_user_command('MailFilter', function()
+  vim.cmd 'silent g/Vous ne recevez pas souvent de courriers/d'
+  vim.cmd '1'
+end, {})
 
 -- Neovide configuration
 
