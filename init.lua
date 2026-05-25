@@ -1199,6 +1199,14 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.treesitter.start()
   end,
 })
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'mail' },
+  callback = function()
+    require('which-key').add {
+      { '<leader>e', group = '[E]dit header' },
+    }
+  end,
+})
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'typst', 'lua', 'python', 'lean' },
