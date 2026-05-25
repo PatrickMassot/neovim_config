@@ -1054,7 +1054,6 @@ require('orgmode').setup {
   org_capture_templates = {
     t = { description = 'Todo', template = '* TODO %?\n %u' },
     i = { description = 'Idée', template = '* Idée %?\n %u' },
-    m = { description = 'Mail à traiter', template = '* Mail %?\n%u' },
   },
   org_use_property_inheritance = false,
   mappings = {
