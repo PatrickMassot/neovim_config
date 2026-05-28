@@ -109,6 +109,7 @@ vim.g.mailheaders_settings = {
 vim.api.nvim_create_user_command('MailFilter', function()
   vim.cmd 'silent g/Vous ne recevez pas souvent/d'
   vim.cmd 'silent g/Vous n’obtenez pas souvent/d'
+  vim.cmd "silent g/You don't often get email/d"
   vim.cmd '1'
 end, {})
 
