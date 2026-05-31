@@ -426,6 +426,7 @@ vim.pack.add {
   gh 'nvim-orgmode/telescope-orgmode.nvim',
   gh 'danilshvalov/org-modern.nvim',     -- nice menus
   gh 'hamidi-dev/org-super-agenda.nvim', -- nice agenda
+  gh 'lukas-reineke/headlines.nvim', -- orgmode headline formatting
 }
 
 vim.cmd 'colorscheme catppuccin-macchiato'
@@ -1235,6 +1236,7 @@ require('org-super-agenda').setup({
         -- },
       },
     })
+require("headlines").setup()
 
 require('telescope').load_extension 'orgmode'
 
