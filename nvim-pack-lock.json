@@ -109,9 +109,17 @@
       "rev": "0d7d35fa946837b8738b17c18d1faa1ac351e7f9",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
+    "org-modern.nvim": {
+      "rev": "c024900b7ee78a0274036025569b47001ef3e6aa",
+      "src": "https://github.com/danilshvalov/org-modern.nvim"
+    },
     "org-roam.nvim": {
       "rev": "6c21c867b178a80fb4ad243c445545e5583d8232",
       "src": "https://github.com/chipsenkbeil/org-roam.nvim"
+    },
+    "org-super-agenda.nvim": {
+      "rev": "c467a59836080bb41693bcf3f25c2d2096b6c32d",
+      "src": "https://github.com/hamidi-dev/org-super-agenda.nvim"
     },
     "orgmode": {
       "rev": "4f02f19b3c9a740828befb51c3d33b3be7aa2e2b",
