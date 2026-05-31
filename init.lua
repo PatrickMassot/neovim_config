@@ -4,7 +4,7 @@
 
 -- TODO: récupérer (et éditer) la config de which-key et celle de telescope
 -- regarder config mdd pour inspiration
-vim.lsp.log.set_level 'debug'
+-- vim.lsp.log.set_level 'debug'
 
 local function format_func(level, ...)
   local info = debug.getinfo(2, 'Sl')
