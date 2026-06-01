@@ -418,6 +418,7 @@ vim.pack.add {
     build = ':TypstPreviewUpdate',
   },
   gh 'Julian/lean.nvim',
+  gh 'lervag/vimtex',
   'https://codeberg.org/pmassot/mail-headers.nvim.git',
 
   -- Orgmode and friends
