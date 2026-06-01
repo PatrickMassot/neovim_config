@@ -110,8 +110,8 @@ end, {})
 -- Neovide configuration
 
 vim.o.guifont = 'JetBrainsMono Nerd Font:h20'
-if vim.fn.hostname() == 'portable-pmassot' then
-  vim.o.guifont = 'JetBrainsMono Nerd Font:h7'
+if vim.fn.hostname() == 'portable-patrick' then
+  vim.o.guifont = 'JetBrainsMono Nerd Font:h8'
 end
 if vim.fn.hostname() == 'fixe-massy' then
   vim.o.guifont = 'JetBrainsMono Nerd Font:h12'
@@ -519,6 +519,7 @@ require('gitsigns').setup {
   end,
 }
 
+require('notify').setup{background_color = "#000000"}
 vim.notify = require 'notify'
 -- require("notify").setup({ render = "wrapped-compact", max_width = 100 })
 -- vim.notify = function(...)
