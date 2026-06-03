@@ -4,20 +4,6 @@
 
 -- TODO: récupérer (et éditer) la config de which-key et celle de telescope
 -- regarder config mdd pour inspiration
--- vim.lsp.log.set_level 'debug'
-
-local function format_func(level, ...)
-  local info = debug.getinfo(2, 'Sl')
-  local header = string.format('[%s][%s] %s:%s', level, os.date(log_date_format), info.short_src, info.currentline)
-  local parts = {}
-  local argc = select('#', ...)
-  for i = 1, argc do
-    local arg = select(i, ...)
-    table.insert(parts, arg == nil and 'nil' or vim.inspect(arg, { newline = ' ', indent = '' }))
-  end
-  return table.concat(parts, '\t') .. '\n'
-end
-vim.lsp.log.set_format_func(format_func)
 
 vim.opt.termguicolors = true
 
