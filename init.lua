@@ -615,7 +615,7 @@ local function lsp_on_attach(ev)
   map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
 
   -- Peek at definition instead of jumping
-  map('gk', peek_definition, '[G]oto pee[k]ed Definition')
+  map('gK', peek_definition, '[G]oto pee[k]ed Definition')
 
   if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, ev.buf) then
     local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
