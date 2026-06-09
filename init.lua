@@ -413,6 +413,8 @@ vim.pack.add {
   },
   gh 'Julian/lean.nvim',
   gh 'lervag/vimtex',
+  gh 'saghen/blink.compat',
+  gh 'micangl/cmp-vimtex',
   'https://codeberg.org/pmassot/mail-headers.nvim.git',
 
   -- Orgmode and friends
@@ -696,14 +698,14 @@ require('blink.cmp').setup {
     },
   },
   sources = {
-    default = { 'lsp', 'path', 'snippets', 'lazydev', 'buffer' },
+    default = { 'lsp', 'path', 'snippets', 'lazydev', 'buffer', 'vimtex' },
     providers = {
       snippets = {
         min_keyword_length = 2,
         score_offset = 6,
       },
       lsp = {
-        min_keyword_length = 3,
+        min_keyword_length = 0,
         score_offset = 3,
       },
       buffer = {
@@ -711,10 +713,16 @@ require('blink.cmp').setup {
         score_offset = 2,
       },
       path = {
-        min_keyword_length = 3,
+        min_keyword_length = 2,
         score_offset = 1,
       },
       lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+      vimtex = {
+        name = 'vimtex',
+        min_keyword_length = 0,
+        module = 'blink.compat.source',
+        score_offset = 80,
+      },
     },
   },
   snippets = { preset = 'luasnip' },
