@@ -5,6 +5,8 @@
 -- TODO: récupérer (et éditer) la config de which-key et celle de telescope
 -- regarder config mdd pour inspiration
 
+-- vim.lsp.log.set_level 'debug'
+
 vim.opt.termguicolors = true
 
 vim.opt.number = false                            -- line number
