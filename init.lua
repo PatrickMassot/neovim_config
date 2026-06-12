@@ -82,7 +82,9 @@ vim.opt.title = true                                 -- Use file name as window 
 
 vim.cmd 'set spelllang=en,fr'
 
-vim.cmd 'let g:vimtex_quickfix_open_on_warning = 0'
+vim.g.tex_flavor = 'latex'
+vim.g.vimtex_view_method = 'zathura'
+vim.g.vimtex_quickfix_open_on_warning = '0'
 
 vim.g.mailheaders_settings = {
   addresses = '$HOME/.config/mutt/addresses',
