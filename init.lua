@@ -319,6 +319,7 @@ vim.api.nvim_create_autocmd('FileType', {
       },
     }
     vim.keymap.set({ 'n' }, '<C-p>', '<cmd>TypstPreview<cr>', { buffer = true })
+    vim.keymap.set({ 'n' }, '<C-S-p>', '<cmd>TypstPreview slide<cr>', { buffer = true })
   end,
 })
 
