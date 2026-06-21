@@ -1286,7 +1286,14 @@ require('org-super-agenda').setup {
     -- },
   },
 }
-require('headlines').setup()
+require('headlines').setup {
+  org = {
+    fat_headlines = false,
+  },
+  org = {
+    fat_headlines = false,
+  },
+}
 
 require('telescope').load_extension 'orgmode'
 
