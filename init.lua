@@ -1290,7 +1290,7 @@ require('headlines').setup {
   org = {
     fat_headlines = false,
   },
-  org = {
+  markdown = {
     fat_headlines = false,
   },
 }
