@@ -1004,8 +1004,7 @@ require('mini.surround').setup {
     suffix_next = 'n', -- Suffix to search with "next" method
   },
 }
-
-require('lean').setup {
+vim.g.lean_config = {
   -- lsp = {
   --   init_options = { editDelay = 0 },
   -- },

@@ -66,7 +66,7 @@
       "src": "https://github.com/folke/lazydev.nvim"
     },
     "lean.nvim": {
-      "rev": "8c7ea37917ac4c061a4d6a6fcefa68a42b1e150b",
+      "rev": "32fb8aa2edf3f172c307957dc7083e6c7f6caa7e",
       "src": "https://github.com/Julian/lean.nvim"
     },
     "lualine.nvim": {
@@ -92,6 +92,10 @@
     "mini.surround": {
       "rev": "1e37ade260e2b655c3a9b8407ba7e6b0fb995b28",
       "src": "https://github.com/nvim-mini/mini.surround"
+    },
+    "modus-themes.nvim": {
+      "rev": "17a64464c27c1be605adca13dbe48f2f402fe107",
+      "src": "https://github.com/miikanissi/modus-themes.nvim"
     },
     "nvim-lightbulb": {
       "rev": "b8c08c5f3b1586dfcdd9f34d7d54fe6982e01ac9",
