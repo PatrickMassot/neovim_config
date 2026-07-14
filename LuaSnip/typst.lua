@@ -83,6 +83,20 @@ return {
   s("diag_lift", fmt(
     [[
 #align(center, diagram($
+  & {B} edge("d", {f1}, {a1}{d1})\
+  {C} edge("r", {f2}, {a2}{d2}, label-side: #right) edge("ur", {f3}, {a3}{d3}, label-side: #right) & {D}
+  $))
+{exit}]],
+    {B=i(1, '"top right"'), C=i(2, '"bottom left"'), D=i(3, '"bottom right"'),
+      f1=i(4, '"right map"'), f2=i(5, '"bottom map"'), f3=i(6, '"diagonal map"'),
+      a1 = c(7, arrow()), a2 = c(8, arrow()), a3 = c(9, arrow()),
+      d1 = c(10, dash()), d2 = c(11, dash()), d3 = c(12, dash()),
+      exit = i(0)
+    })
+  ),
+  s("diag_descends", fmt(
+    [[
+#align(center, diagram($
   {A} edge({f1}, {a1}{d1}) edge("d", {f2}, {a2}{d2}) & {B} \
   {C} edge("ur", {f3}, {a3}{d3}, label-side: #right)
   $))
