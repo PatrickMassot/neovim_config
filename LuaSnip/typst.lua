@@ -108,7 +108,47 @@ return {
       exit = i(0)
     })
   ),
+  s("diag_nabla", fmt(
+    [[
+#align(center, diagram($
+  {A} edge("rr", {a1f}, {a1k}{d1}, label-side: #right) edge("dr", {a2f}, {a2k}{d2}, label-side: #left) & & {B} edge("dl", {a3f}, {a3k}{d3})\
+  & {C}  &
+  $))
+{exit}]],
+    {A = i(1, '"top left"'),
+     B = i(2, '"rop right"'),
+     C = i(3, '"bottom"'),
+     a1f = i(4, '"top map"'),
+     a2f = i(5, '"diag left map"'),
+     a3f = i(6, '"diag right map"'),
+     a1k = c(7, arrow()),
+     a2k = c(8, arrow()),
+     a3k = c(9, arrow()),
+     d1 = c(10, dash()),
+     d2 = c(11, dash()),
+     d3 = c(12, dash()),
+     exit = i(0)})),
   s("diag_delta", fmt(
+    [[
+#align(center, diagram($
+  & {A} edge("dl", {a1f}, {a1k}{d1})  edge("dr", {a2f}, {a2k}{d2}, label-side: #left)& \
+  {B} edge("rr", {a3f}, {a3k}{d3}, label-side: #right)  & & {D}
+  $))
+{exit}]],
+    {A = i(1, '"top"'),
+     B = i(2, '"bottom left"'),
+     D = i(3, '"bottom right"'),
+     a1f = i(4, '"diag left map"'),
+     a2f = i(5, '"diag right map"'),
+     a3f = i(6, '"bottom map"'),
+     a1k = c(7, arrow()),
+     a2k = c(8, arrow()),
+     a3k = c(9, arrow()),
+     d1 = c(10, dash()),
+     d2 = c(11, dash()),
+     d3 = c(12, dash()),
+     exit = i(0)})),
+  s("diag_double_delta", fmt(
     [[
 #align(center, diagram($
   & {A} edge("dl", {a1f}, {a1k}{d1}) edge("d", {a2f}, {a2k}{d2}, label-sep: #0.05em) edge("dr", {a3f}, {a3k}{d3}, label-side: #left)& \
