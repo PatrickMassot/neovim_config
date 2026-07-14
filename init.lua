@@ -418,6 +418,7 @@ vim.pack.add {
   gh 'lervag/vimtex',
   gh 'saghen/blink.compat',
   gh 'micangl/cmp-vimtex',
+  'https://codeberg.org/pmassot/typst-refs.nvim.git',
   'https://codeberg.org/pmassot/mail-headers.nvim.git',
 
   -- Orgmode and friends
@@ -1478,3 +1479,5 @@ vim.api.nvim_create_user_command('Beamer', function()
   vim.cmd 'set guifont=DroidSansM_Nerd_Font:b'
   vim.cmd "lua require 'lean.config'().infoview.view_options.show_term_goals = false"
 end, { nargs = 0 })
+
+vim.keymap.set('i', '<C-S-r>', require('typst-refs').get_refs)

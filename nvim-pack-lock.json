@@ -177,6 +177,10 @@
       "rev": "87db18b8d19c8b0eed399f52e4c527ce5afe4817",
       "src": "https://github.com/chomosuke/typst-preview.nvim"
     },
+    "typst-refs.nvim": {
+      "rev": "f7528c7751f00fcff34c6421bb6b951c827f4d62",
+      "src": "https://codeberg.org/pmassot/typst-refs.nvim.git"
+    },
     "vim-fugitive": {
       "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
       "src": "https://github.com/tpope/vim-fugitive"
