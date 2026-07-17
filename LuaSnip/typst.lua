@@ -111,7 +111,7 @@ return {
   s("diag_nabla", fmt(
     [[
 #align(center, diagram($
-  {A} edge("rr", {a1f}, {a1k}{d1}, label-side: #right) edge("dr", {a2f}, {a2k}{d2}, label-side: #left) & & {B} edge("dl", {a3f}, {a3k}{d3})\
+  {A} edge("rr", {a1f}, {a1k}{d1}, label-side: #left) edge("dr", {a2f}, {a2k}{d2}, label-side: #right) & & {B} edge("dl", {a3f}, {a3k}{d3}, label-side: #left)\
   & {C}  &
   $))
 {exit}]],
