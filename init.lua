@@ -1426,7 +1426,17 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     vim.api.nvim_create_autocmd('BufWritePre', {
       pattern = '',
-      command = ':%s/\\s\\+$//e',
+      command = '%s/\\s\\+$//e',
+    })
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'typst' },
+  callback = function()
+    vim.api.nvim_create_autocmd('BufWritePre', {
+      pattern = '',
+      command = '%s/\\([_^]\\)\\([^0-9∞( *]\\)(/\\1\\2 (/ge',
     })
   end,
 })
