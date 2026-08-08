@@ -1436,7 +1436,7 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     vim.api.nvim_create_autocmd('BufWritePre', {
       pattern = '',
-      command = '%s/\\([_^]\\)\\([^0-9∞( *]\\)(/\\1\\2 (/ge',
+      command = '%s/\\([_^]\\)\\([^0-9∞( *]\\|\\\\#\\)(/\\1\\2 (/ge',
     })
   end,
 })

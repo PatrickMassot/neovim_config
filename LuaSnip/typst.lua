@@ -266,6 +266,7 @@ return {
       repeat_duplicates = true
     })
   ),
+  s("edge", fmt([[edge("{d}", {m}{c}, {l})]], {l = i(1), d = c(2, {t"r", t"d", t"l", t"u", t"ur", t"dr"}), m = c(3, arrow()), c = c(4, dash())})),
   s("thm", fmt([[
 #{}[
   {}
@@ -289,4 +290,10 @@ return {
       }
     )
   ),
+  s("sum", fmt(
+    [[sum_({i}={d})^{f} {exit}]],
+    {i = i(1, 'i'),
+     d = i(2, '0'),
+     f = i(3, 'p'),
+     exit = i(0)})),
 }
