@@ -12,6 +12,10 @@
       "rev": "edd0522ba9910b93c6c59b8b22f8bd8db0f0f113",
       "src": "https://github.com/stevearc/aerial.nvim"
     },
+    "atone.nvim": {
+      "rev": "b5ebb6b27693fa759899b33c6fac787611e08a39",
+      "src": "https://github.com/XXiaoA/atone.nvim"
+    },
     "blink.cmp": {
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
       "src": "https://github.com/saghen/blink.cmp",

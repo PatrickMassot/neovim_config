@@ -357,6 +357,7 @@ vim.pack.add {
   gh 'stevearc/aerial.nvim',
   gh 'nvim-lualine/lualine.nvim',
   gh 'folke/which-key.nvim',
+  gh 'XXiaoA/atone.nvim',
 
   -- Telescope
   gh 'nvim-lua/plenary.nvim',
@@ -527,6 +528,11 @@ vim.notify = require 'notify'
 -- 	vim.notify = require("notify")
 -- 	return vim.notify(...)
 -- end
+
+require('atone').setup()
+
+vim.keymap.set('n', '<leader>u', ':Atone<CR>', { desc = '[U]ndo tree' })
+
 
 -- ============================================================================
 -- LSP, Linting, Formatting & Completion
