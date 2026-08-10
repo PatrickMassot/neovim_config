@@ -185,8 +185,8 @@ vim.keymap.set('n', '<C-<>', '<C-w>10<', { desc = 'Decrease window width' })
 vim.keymap.set('i', '<C->>', '<ESC><C-w>10>i', { desc = 'Increase window width' })
 vim.keymap.set('i', '<C-<>', '<ESC><C-w>10<i', { desc = 'Decrease window width' })
 
-vim.keymap.set('n', '<leader>sv', ':vsplit<CR>', { desc = 'Split window vertically' })
-vim.keymap.set('n', '<leader>sh', ':split<CR>', { desc = 'Split window horizontally' })
+-- vim.keymap.set('n', '<leader>sv', ':vsplit<CR>', { desc = 'Split window vertically' })
+-- vim.keymap.set('n', '<leader>sh', ':split<CR>', { desc = 'Split window horizontally' })
 
 vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { desc = 'Move line down' })
 vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { desc = 'Move line up' })
@@ -229,8 +229,9 @@ vim.keymap.set(
   '<cmd>lua require("luasnip").exit_out_of_region(require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()])<cr>'
 )
 
--- Aerial keymaps
-vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
+-- require("aerial").setup()
+-- -- Aerial keymaps
+-- vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
 
 -- Flash keymaps
 vim.keymap.set({ 'n', 'x', 'o' }, 's', function()
@@ -1388,6 +1389,13 @@ end)
 vim.keymap.set({ 'n', 'x', 'o' }, '[]', function()
   require('nvim-treesitter-textobjects.move').goto_previous_end('@class.outer', 'textobjects')
 end)
+
+vim.keymap.set("n", "<leader>s", function()
+  require("nvim-treesitter-textobjects.swap").swap_next "@parameter.inner"
+end)
+-- vim.keymap.set("n", "<leader>S", function()
+--   require("nvim-treesitter-textobjects.swap").swap_previous "@parameter.outer"
+-- end)
 
 local ts_repeat_move = require 'nvim-treesitter-textobjects.repeatable_move'
 
