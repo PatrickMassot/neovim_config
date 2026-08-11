@@ -222,7 +222,8 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('n', '<C-f>', vim.lsp.buf.format)
 
 -- LuaSnip keymaps
-vim.keymap.set({ 'i' }, '<C-c>', '<cmd>lua require("luasnip.extras.select_choice")()<cr>')
+vim.keymap.set({ 'x', 'i' }, '<C-c>', '<cmd>lua require("luasnip.extras.select_choice")()<cr>', { desc = 'Choose snippet node' })
+vim.keymap.set({ 'x', 'i' }, '<S-tab>', function() require("luasnip").jump(-1) end, { desc = 'Jump to previous snippet node' })
 vim.keymap.set(
   { 'i' },
   '<C-tab>',
