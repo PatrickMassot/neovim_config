@@ -360,6 +360,9 @@ vim.pack.add {
   gh 'folke/which-key.nvim',
   gh 'XXiaoA/atone.nvim',
 
+  gh 'MunifTanjim/nui.nvim',
+  gh 'grapp-dev/nui-components.nvim',
+
   -- Telescope
   gh 'nvim-lua/plenary.nvim',
   gh 'nvim-telescope/telescope.nvim',
@@ -1506,3 +1509,4 @@ vim.api.nvim_create_user_command('Beamer', function()
 end, { nargs = 0 })
 
 vim.keymap.set('i', '<C-S-r>', require('typst-refs').get_refs)
+vim.keymap.set({ 'i', 'n' }, "<C-S-e>", require('fletcher').edit_edge, { desc = "Open edge menu" })

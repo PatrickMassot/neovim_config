@@ -175,6 +175,22 @@ return {
      d4 = c(18, dash()),
      d5 = c(19, dash()),
      exit = i(0)})),
+  s("diag_sec", fmt(
+    [[
+#align(center, diagram($
+  0 edge("->") & {A} edge({a1f}, {a1k}{d1}) & {B} edge({a2f}, {a2k}{d2}) &  {C} edge("->") & 0
+  $))
+{exit}]],
+    {A = i(1, 'A'),
+     B = i(2, 'B'),
+     C = i(3, 'C'),
+     a1f = i(4, 'ι'),
+     a2f = i(5, 'π'),
+     a1k = c(6, arrow()),
+     a2k = c(7, arrow()),
+     d1 = c(8, dash()),
+     d2 = c(9, dash()),
+     exit = i(0)})),
   s("diag_transfo_nat", fmt(
   [[#align(center, diagram($
     {F}({X}) edge({a}_{X}, "->") edge("d", {F}(f), "->") & {G}({X}) edge("d", {G}(f), "->", label-side: #left)\
@@ -278,6 +294,15 @@ return {
 {}]],
       {
 	d(1, get_visual), i(0)
+      }
+    )
+  ),
+  s({trig = "image", dscr = "Insert an image."},
+    fmt([[
+#align(center, image("{}"{}))
+{}]],
+      {
+	i(1), i(2, ", width: 50%"), i(0)
       }
     )
   ),
