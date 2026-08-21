@@ -246,18 +246,6 @@ return {
       repeat_duplicates = true
     })
   ),
-  s("sec", fmt( -- suite exacte courte
-  [[#align(center, diagram($
-    0 edge("->") & {A} edge("{i}", "->") & {B} edge("{p}", "->") & {C} edge("->") & 0
-    $))
-    {exit}]],
-    {A = i(1, 'A'),
-     B = i(2, 'B'),
-     C = i(3, 'C'),
-     i = i(4, 'ι'),
-     p = i(5, 'π'),
-     exit = i(0)
-    })),
   s("diag_mayer_vietoris", fmt(
   [[#align(center, diagram($
     H_{p} ({A} ∩ {B}) edge("->") & H_{p} ({A}) ⊕ H_{p} ({B}) edge("->") & H_{p} ({X}) edge("->") & H_{pm} ({A} ∩ {B}) edge("->") & H_{pm} ({A}) ⊕ H_{pm} ({B})
