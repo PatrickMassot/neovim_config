@@ -1082,7 +1082,7 @@ function LinkEMailType:follow(link)
   end
   -- Get the part after the `email:` part
   local url = link:sub(7)
-  vim.system { 'kitty', 'neomutt', '-e', '""push l~i' .. url .. '<enter><enter>""' }
+  vim.system { 'kitty', 'neomutt', '-e', '""push l=i' .. url .. '<enter><enter>""' }
   return true
 end
 
