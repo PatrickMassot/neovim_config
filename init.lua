@@ -222,17 +222,16 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('n', '<C-f>', vim.lsp.buf.format)
 
 -- LuaSnip keymaps
-vim.keymap.set({ 'x', 'i' }, '<C-c>', '<cmd>lua require("luasnip.extras.select_choice")()<cr>', { desc = 'Choose snippet node' })
-vim.keymap.set({ 'x', 'i' }, '<S-tab>', function() require("luasnip").jump(-1) end, { desc = 'Jump to previous snippet node' })
+vim.keymap.set({ 'x', 'i' }, '<C-c>', '<cmd>lua require("luasnip.extras.select_choice")()<cr>',
+  { desc = 'Choose snippet node' })
+vim.keymap.set({ 'x', 'i' }, '<S-tab>', function()
+  require('luasnip').jump(-1)
+end, { desc = 'Jump to previous snippet node' })
 vim.keymap.set(
   { 'i' },
   '<C-tab>',
   '<cmd>lua require("luasnip").exit_out_of_region(require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()])<cr>'
 )
-
--- require("aerial").setup()
--- -- Aerial keymaps
--- vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
 
 -- Flash keymaps
 vim.keymap.set({ 'n', 'x', 'o' }, 's', function()
@@ -537,7 +536,6 @@ require('atone').setup()
 
 vim.keymap.set('n', '<leader>u', ':Atone<CR>', { desc = '[U]ndo tree' })
 
-
 -- ============================================================================
 -- LSP, Linting, Formatting & Completion
 -- ============================================================================
@@ -836,6 +834,8 @@ vim.lsp.enable {
   -- 'efm',
   'org',
 }
+
+require('trouble').setup()
 
 ---------------------------------------------------------------------
 --- Telescope
@@ -1396,8 +1396,8 @@ vim.keymap.set({ 'n', 'x', 'o' }, '[]', function()
   require('nvim-treesitter-textobjects.move').goto_previous_end('@class.outer', 'textobjects')
 end)
 
-vim.keymap.set("n", "<leader>s", function()
-  require("nvim-treesitter-textobjects.swap").swap_next "@parameter.inner"
+vim.keymap.set('n', '<leader>s', function()
+  require('nvim-treesitter-textobjects.swap').swap_next '@parameter.inner'
 end)
 -- vim.keymap.set("n", "<leader>S", function()
 --   require("nvim-treesitter-textobjects.swap").swap_previous "@parameter.outer"
@@ -1431,6 +1431,7 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     require('which-key').add {
       { '<leader>e', group = '[E]dit header' },
+      { '<leader>m', group = '[M]ove email to other header' },
     }
   end,
 })
@@ -1505,4 +1506,4 @@ vim.api.nvim_create_user_command('Beamer', function()
 end, { nargs = 0 })
 
 vim.keymap.set('i', '<C-S-r>', require('typst-refs').get_refs)
-vim.keymap.set({ 'i', 'n' }, "<C-S-e>", require('fletcher').edit_edge, { desc = "Open edge menu" })
+vim.keymap.set({ 'i', 'n' }, '<C-S-e>', require('fletcher').edit_edge, { desc = 'Open edge menu' })
