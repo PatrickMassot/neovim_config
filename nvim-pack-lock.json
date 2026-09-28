@@ -50,8 +50,8 @@
       "src": "https://github.com/folke/flash.nvim"
     },
     "fletcher.nvim": {
-      "rev": "966b9166ecd4b813c94337f7f48c5a262f897feb",
-      "src": "file:///home/pmassot/soft/fletcher.nvim"
+      "rev": "9b9e6d053bb2371d6fe050fbe7978a3e1ffee20f",
+      "src": "https://codeberg.org/pmassot/fletcher.nvim.git"
     },
     "fzf-lua": {
       "rev": "13bb178a299f7493dd64427a58e61904c4b58ecb",

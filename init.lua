@@ -426,6 +426,7 @@ vim.pack.add {
   gh 'micangl/cmp-vimtex',
   'https://codeberg.org/pmassot/typst-refs.nvim.git',
   'https://codeberg.org/pmassot/mail-headers.nvim.git',
+  'https://codeberg.org/pmassot/fletcher.nvim.git',
   gh 'salkin-mada/openscad.nvim',
 
   -- Orgmode and friends
