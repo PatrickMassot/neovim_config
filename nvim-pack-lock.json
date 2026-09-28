@@ -141,6 +141,10 @@
       "rev": "58447c1fca354bbf184425e4a8d01deecbd6f3c4",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
+    "openscad.nvim": {
+      "rev": "31c946cdc6895339ae523b9136a5017b0f7339aa",
+      "src": "https://github.com/salkin-mada/openscad.nvim"
+    },
     "org-modern.nvim": {
       "rev": "c024900b7ee78a0274036025569b47001ef3e6aa",
       "src": "https://github.com/danilshvalov/org-modern.nvim"
